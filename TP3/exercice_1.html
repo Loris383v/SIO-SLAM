@@ -3,17 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Présentation des Balises HTML</title>
+    <title>Mémo balises HTML</title>
 </head>
 <body>
     <button onclick="location.href='index.html'">Retour au TP</button>
-    <h1>Mémo balises HTML</h1>
+    <h1>Mémento des balises HTML basiques</h1>
+
+    <h2>Balises HTML pour la structure de base d’un document</h2>
+    <ul>
+        <li>&lt;!DOCTYPE&gt; - Détermine le type de document.</li>
+        <li>&lt;html&gt; - Définit un document HTML.</li>
+        <li>&lt;head&gt; - Contient les métadonnées du document.</li>
+        <li>&lt;title&gt; - Définit le titre du document.</li>
+        <li>&lt;body&gt; - Contient le contenu affiché dans le navigateur.</li>
+        <li>&lt;nav&gt; - Zone de navigation du site Web.</li>
+        <li>&lt;section&gt; - Regroupe des éléments.</li>
+        <li>&lt;article&gt; - Partie contenu de la page.</li>
+        <li>&lt;header&gt; - Définit l’en-tête d’une page.</li>
+        <li>&lt;footer&gt; - Définit le pied de page.</li>
+    </ul>
 
     <h2>Balises de titres</h2>
     <p>&lt;h1&gt; à &lt;h6&gt; définissent des titres de niveaux différents :</p>
-    <h1>Titre principal (h1)</h1>
-    <h2>Sous-titre (h2)</h2>
-    <h3>Sous-sous-titre... (h3)</h3>
+    <ul>
+        <li><h1>Titre principal (h1)</h1></li>
+        <li><h2>Sous-titre (h2)</h2></li>
+        <li><h3>Sous-sous-titre... (h3)</h3></li>
+    </ul>
 
     <h2>Texte et mise en forme</h2>
     <ul>
@@ -26,48 +42,34 @@
         <li>&lt;mark&gt; - Texte surligné : <mark>exemple</mark></li>
         <li>&lt;small&gt; - Petit texte : <small>exemple</small></li>
         <li>&lt;big&gt; - Grand texte : <big>exemple</big></li>
+        <li>&lt;sup&gt; - Exposant : Ex<sup>emple</sup></li>
+        <li>&lt;sub&gt; - Indice : Ex<sub>emple</sub></li>
     </ul>
 
-    <h2>Texte structuré</h2>
-    <p>&lt;p&gt; - Paragraphe :</p>
-    <p>Ceci est un paragraphe de texte.</p>
-    
-    <p>&lt;blockquote&gt; - Citation :</p>
-    <blockquote>Ceci est une citation</blockquote>
-
-    <p>&lt;pre&gt; - Texte préformaté :</p>
-    <pre>
-     Texte préformaté
-        avec espaces    et retours         conservés
-    </pre>
-
-    <h2>Listes</h2>
-    <p>&lt;ul&gt; Liste non ordonnée :</p>
+    <h2>Structure du texte</h2>
     <ul>
-        <li>Élément 1</li>
-        <li>Élément 2</li>
+        <li>&lt;p&gt; - Paragraphe</li>
+        
+
+        <li>&lt;pre&gt; - Texte préformaté, le texte reste dans la même disposition que dans le code source</li>
+
+        <li>&lt;br&gt; - Saut de ligne</li>
+
+    </ul>
+        <h2>Listes</h2>
+        <ul>
+        <li>&lt;ul&gt; Liste non ordonnée :</li>
+        <ul>
+            <li>Un élément</li>
+            <li>Un autre élément...</li>
+        </ul>
+
+        <li>&lt;ol&gt; Liste ordonnée :</li>
+        <ol>
+            <li>Premier élément</li>
+            <li>Deuxième élément</li>
+        </ol>
     </ul>
 
-    <p>&lt;ol&gt; Liste ordonnée :</p>
-    <ol>
-        <li>Premier</li>
-        <li>Deuxième</li>
-    </ol>
-
-    <h2>Texte technique</h2>
-    <ul>
-        <li>&lt;code&gt; - Code informatique : <code>print("Hello")</code></li>
-        <li>&lt;kbd&gt; - Entrée utilisateur : <kbd>Ctrl + C</kbd></li>
-        <li>&lt;sup&gt; - Exposant : x<sup>2</sup></li>
-        <li>&lt;sub&gt; - Indice : H<sub>2</sub>O</li>
-        <li>&lt;abbr&gt; - Abréviation : <abbr title="HyperText Markup Language">HTML</abbr></li>
-    </ul>
-
-    <h2>Conteneurs génériques</h2>
-    <p>&lt;div&gt; - Conteneur de bloc :</p>
-    <div>Ceci est un conteneur de bloc</div>
-    
-    <p>&lt;span&gt; - Conteneur en ligne :</p>
-    <p>Voici un <span style="color: red;">texte rouge</span> en ligne.</p>
 </body>
 </html>
