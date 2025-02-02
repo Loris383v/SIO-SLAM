@@ -3,83 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mémo balises HTML</title>
-    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <title>CheatSheet HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        code {
+            background: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+            display: block;
+        }
+        .exemple {
+            border-left: 4px solid #333;
+            padding-left: 20px;
+            margin-left: 30px;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background: #f8f8f8;
+        }
+    </style>
 </head>
 <body>
-    <button class="button" type="button" onclick="location.href='index.html'">
-        <div class="icon-container">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" height="25px" width="25px">
-                <path d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z" fill="#FFFFFF"></path>
-                <path d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z" fill="#FFFFFF"></path>
-            </svg>
+    < class="container">
+        <h1>CheatSheet HTML</h1>
+        <h2>Structure de base :</h2>
+        <code>&lt;!DOCTYPE html&gt;<br>&lt;html lang="fr"&gt;<br>&lt;head&gt;<br>&lt;title&gt;Titre ici&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>  &lt;!-- Contenu ici --&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</code>
+        
+        <h2>Les Titres :</h2>
+        <p>De h1 à h6, du plus important au moins important</p>
+        <code>&lt;h1&gt;Titre Principal&lt;/h1&gt;<br>&lt;h2&gt;Titre Secondaire&lt;/h2&gt;</code>
+        <div class="exemple"><h1>Titre Principal</h1><br><h2>Titre Secondaire</h2></div>
+        
+        <h2>Paragraphes :</h2>
+        <p>Les paragraphes sont utilisés pour séparer les informations</p>
+        <code>&lt;p&gt;Ceci est un paragraphe.&lt;/p&gt;</code>
+        <div class="exemple"><p>Ceci est un paragraphe.</p></div>
+
+        <h2>Commentaires :</h2>
+        <p>Les commentaires sont utilisés pour expliquer le code, ne sont pas visibles sur la page</p>
+        <code>&lt;!-- Ceci est un commentaire --&gt;</code>
+        <div class="exemple"><!-- Ceci est un commentaire --> On ne voit rien ici, mais on verra le commentaire si on inspecte le code de la page</div>
+        
+        <h2>Liens :</h2>
+        <p>Permet de rediriger vers une autre page, un autre site</p>
+        <code>&lt;a href="https://www.exemple.com"&gt;Texte du lien&lt;/a&gt;</code>
+        <div class="exemple"><a href="https://www.exemple.com">Texte du lien</a></div>
+        
+        <h2>Formatage HTML :</h2>
+        <p>Pour mettre en forme le texte</p>
+        <code>&lt;b&gt;Texte en gras&lt;/b&gt;<br>
+            &lt;i&gt;Texte en italique&lt;/i&gt;<br>
+            &lt;u&gt;Texte souligné&lt;/u&gt;<br>
+            &lt;mark&gt;Texte surligné&lt;/mark&gt;<br>
+            &lt;strong&gt;Texte en gras accentué&lt;/strong&gt;<br>
+            &lt;em&gt;Texte en italique accentué&lt;/em&gt;<br>
+            &lt;del&gt;Texte barré&lt;/del&gt;<br>
+            &lt;sup&gt;Texte en exposant&lt;/sup&gt;<br>
+            &lt;sub&gt;Texte en indice&lt;/sub&gt;<br>
+            &lt;code&gt;Afficher du code en police monospace&lt;/code&gt;<br>
+            &lt;pre&gt;Conserve les espaces et retours à la ligne&lt;/pre&gt;<br>
+            &lt;blockquote&gt;Indique un bloc de citation&lt;/blockquote&gt;<br>
+        </code>
+        <div class="exemple">
+            <p><b>Texte en gras</b></p>
+            <p><i>Texte en italique</i></p>
+            <p><u>Texte souligné</u></p>
+            <p><mark>Texte surligné</mark></p>
+            <p><strong>Texte en gras accentué</strong></p>
+            <p><em>Texte en italique accentué</em></p>
+            <p><del>Texte barré</del></p>
+            <p>Texte en <sup>exposant</sup></p>
+            <p>Texte en <sub>indice</sub></p>
+            <code>Code en police monospace</code>
+            <pre>Pre - Espaces et     retours à la ligne conservés</pre>
+            <blockquote>Bloc de citation</blockquote>
         </div>
-        <p class="button-text">Retour</p>
-    </button>
-    <br>
-    <h1>Mémento des balises HTML basiques</h1>
-
-    <h2>Balises HTML pour la structure de base d’un document</h2>
-    <ul>
-        <li>&lt;!DOCTYPE&gt; - Détermine le type de document.</li>
-        <li>&lt;html&gt; - Définit un document HTML.</li>
-        <li>&lt;head&gt; - Contient les métadonnées du document.</li>
-        <li>&lt;title&gt; - Définit le titre du document.</li>
-        <li>&lt;body&gt; - Contient le contenu affiché dans le navigateur.</li>
-        <li>&lt;nav&gt; - Zone de navigation du site Web.</li>
-        <li>&lt;section&gt; - Regroupe des éléments.</li>
-        <li>&lt;article&gt; - Partie contenu de la page.</li>
-        <li>&lt;header&gt; - Définit l’en-tête d’une page.</li>
-        <li>&lt;footer&gt; - Définit le pied de page.</li>
-    </ul>
-
-    <h2>Balises de titres</h2>
-    <p>&lt;h1&gt; à &lt;h6&gt; définissent des titres de niveaux différents :</p>
-    <ul>
-        <li><h1>Titre principal (h1)</h1></li>
-        <li><h2>Sous-titre (h2)</h2></li>
-        <li><h3>Sous-sous-titre... (h3)</h3></li>
-    </ul>
-
-    <h2>Texte et mise en forme</h2>
-    <ul>
-        <li>&lt;b&gt; - Texte en gras : <b>exemple</b></li>
-        <li>&lt;strong&gt; - Texte important : <strong>exemple</strong></li>
-        <li>&lt;i&gt; - Texte en italique : <i>exemple</i></li>
-        <li>&lt;em&gt; - Texte mis en valeur : <em>exemple</em></li>
-        <li>&lt;u&gt; - Texte souligné : <u>exemple</u></li>
-        <li>&lt;del&gt; - Texte barré : <del>exemple</del></li>
-        <li>&lt;mark&gt; - Texte surligné : <mark>exemple</mark></li>
-        <li>&lt;small&gt; - Petit texte : <small>exemple</small></li>
-        <li>&lt;big&gt; - Grand texte : <big>exemple</big></li>
-        <li>&lt;sup&gt; - Exposant : Ex<sup>emple</sup></li>
-        <li>&lt;sub&gt; - Indice : Ex<sub>emple</sub></li>
-    </ul>
-
-    <h2>Structure du texte</h2>
-    <ul>
-        <li>&lt;p&gt; - Paragraphe</li>
         
 
-        <li>&lt;pre&gt; - Texte préformaté, le texte reste dans la même disposition que dans le code source</li>
+        <h2>Divisions :</h2>
+        <p>Utilisées pour grouper des éléments</p>
+        <code>&lt;div&gt;Contenu de la division&lt;/div&gt;</code>
+        <div class="exemple"><div>Contenu de la division</div></div>
 
-        <li>&lt;br&gt; - Saut de ligne</li>
 
-    </ul>
-        <h2>Listes</h2>
+
+        <h2>Listes :</h2>
+        <p>Permet de lister des éléments</p>
+        <p>Liste non ordonnée :</p>
+        <code>&lt;ul&gt;<br>&nbsp;&nbsp;&lt;li&gt;Élément 1&lt;/li&gt;<br>&nbsp;&nbsp;&lt;li&gt;Élément 2&lt;/li&gt;<br>&lt;/ul&gt;</code>
+        
+        <div class="exemple">
         <ul>
-        <li>&lt;ul&gt; Liste non ordonnée :</li>
-        <ul>
-            <li>Un élément</li>
-            <li>Un autre élément...</li>
-        </ul>
+            <li>Élément 1</li>
+            <li>Élément 2</li>
+        </ul></div>
 
-        <li>&lt;ol&gt; Liste ordonnée :</li>
+        <p>Liste ordonnée :</p>
+        <code>&lt;ol&gt;<br>&nbsp;&nbsp;&lt;li&gt;Élément 1&lt;/li&gt;<br>&nbsp;&nbsp;&lt;li&gt;Élément 2&lt;/li&gt;<br>&lt;/ol&gt;</code>
+        
+        <div class="exemple">
         <ol>
-            <li>Premier élément</li>
-            <li>Deuxième élément</li>
-        </ol>
-    </ul>
+            <li>Élément 1</li>
+            <li>Élément 2</li>
+        </ol></div>
+        
+        <h2>Tableaux :</h2>
+        <p>Permet de présenter des données de manière structurée</p>
+        <code>&lt;table&gt;<br>&nbsp;&nbsp;&lt;tr&gt;&lt;th&gt;Colonne 1&lt;/th&gt;&lt;th&gt;Colonne 2&lt;/th&gt;&lt;/tr&gt; -- Ligne 1<br>&nbsp;&nbsp;&lt;tr&gt;&lt;td&gt;Donnée 1&lt;/td&gt;&lt;td&gt;Donnée 2&lt;/td&gt;&lt;/tr&gt; -- Ligne 2<br>&lt;/table&gt;</code>
+        <div class="exemple"><table>
+            <tr>
+                <th>Colonne 1</th>
+                <th>Colonne 2</th>
+            </tr>
+            <tr>
+                <td>Donnée 1</td>
+                <td>Donnée 2</td>
+            </tr>
+        </table></div>
+        
+        <h2>Formulaires :</h2>
+        <p>Permet de collecter des informations de l'utilisateur</p>
+        <code>&lt;form&gt;<br>&nbsp;&nbsp;&lt;label for="username"&gt;Nom d'utilisateur:&lt;/label&gt;<br>&nbsp;&nbsp;&lt;input type="text" id="username" name="username"&gt;<br>&nbsp;&nbsp;&lt;input type="submit" value="Envoyer"&gt;<br>&lt;/form&gt;</code>
+        <div class="exemple"><form>
+            <label for="username">Nom d'utilisateur:</label>
+            <input type="text" id="username" name="username">
+            <input type="submit" value="Envoyer">
+        </form></div>
+        
+        <h2>Sémantique :</h2>
+        <p>Permet de donner un sens aux blocs dans le code</p>
+        <code>&lt;header&gt;En-Tête&lt;/header&gt;<br>
+            &lt;nav&gt;Navigation&lt;/nav&gt;<br>
+            &lt;section&gt;Section&lt;/section&gt;<br>
+            &lt;article&gt;Article&lt;/article&gt;<br>
+            &lt;aside&gt;Aparté&lt;/aside&gt;<br>
+            &lt;footer&gt;Pied de page&lt;/footer&gt;</code>
+            </code>
 
+        <h2>Éléments multimédias :</h2>
+        <p>Pour intégrer des vidéos , des images, des sons</p>
+        <p>Vidéo :</p>
+        <code>&lt;video controls&gt;&lt;source src="video.mp4" type="video/mp4"&gt;&lt;/video&gt;</code>
+        <div class="exemple"><video controls width="320">
+            <source src="files/video.mp4" type="video/mp4">
+        </video></div>
+        <p>Image :</p>
+            <code>&lt;img src="image.jpg" alt="Description de l'image en cas de non chargement et pour les lecteurs"&gt;</code>
+            <div class="exemple"><img src="files/image.jpg" alt="Description de l'image"></div>
+        <p>Audio :</p>
+        <code>&lt;audio controls&gt;&lt;source src="audio.mp3" type="audio/mpeg"&gt;&lt;/audio&gt;</code>
+        <div class="exemple"><audio controls>
+            <source src="files/audio.mp3" type="audio/mpeg">
+        </audio></div>
+        
+        <h2>Caractères spéciaux :</h2>
+        <p>Pour indiquer des éléments qui pour certains seraient mal interprétés par HTML si écrits en clair</p> 
+        <ul>
+            <li><code>&amp;copy;</code> → ©</li>
+            <li><code>&amp;amp;</code> → &</li>
+            <li><code>&amp;lt;</code> → &lt;</li>
+            <li><code>&amp;gt;</code> → &gt;</li>
+            <li><code>&amp;quot;</code> → "</li>
+            <li><code>&amp;nbsp;</code> → espace insécable</li>
+        </ul>
+    </div>
 </body>
 </html>
