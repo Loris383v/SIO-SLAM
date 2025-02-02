@@ -54,3 +54,46 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+
+
+.button {
+    cursor: pointer;
+    background-color: white;
+    text-align: center;
+    width: 100px;
+    height: 32px;
+    border-radius: 16px;
+    position: relative;
+    font-size: 1rem;
+    font-weight: 600;
+    color: black;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-container {
+    background-color: #1f1f1f;
+    border-radius: 12px;
+    height: 20px;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    transition: width 0.5s ease;
+    z-index: 10;
+}
+
+.button:hover .icon-container {
+    width: 88px;
+}
+
+.button-text {
+    transform: translateX(8px);
+    transition: color 0.3s ease;
+}
