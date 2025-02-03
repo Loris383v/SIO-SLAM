@@ -5,52 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mémo HTML</title>
     <link rel="stylesheet" type="text/css" href="style/style.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #252525;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: #2e2e2e;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2, h3 {
-            color: white;
-        }
-        code {
-            background: #3b3b3b;
-            padding: 2px 5px;
-            border-radius: 4px;
-            display: block;
-        }
-        .exemple {
-            border-left: 4px solid #333;
-            padding-left: 20px;
-            margin-left: 30px;
-        }
-        ul, ol {
-            padding-left: 20px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background: #2e2e2e;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style/memo.css">
+    <link rel="icon" type="image/x-icon" href="../image/icone.ico">
+    
 </head>
 <body>
     <button class="button" type="button" onclick="location.href='index.html'">
@@ -205,6 +162,62 @@
             <li><code>&amp;quot;</code> → "</li>
             <li><code>&amp;nbsp;</code> → espace insécable</li>
         </ul>
+
+
     </div>
+    
+
+    <!-- From Uiverse.io by vinodjangid07 --> 
+    <div class="backBtn">
+    <button class="button-backtop" id="backTopBtn">
+        <svg class="svgIcon-backtop" viewBox="0 0 384 512">
+        <path
+            d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+        ></path>
+        </svg>
+    </button>
+  </div>
+  
+
+
+
+
+<label
+  for="themeToggle"
+  class="themeToggle st-sunMoonThemeToggleBtn"
+  type="checkbox"
+>
+  <input type="checkbox" id="themeToggle" class="themeToggleInput" />
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    stroke="none"
+  >
+    <mask id="moon-mask">
+      <rect x="0" y="0" width="20" height="20" fill="white"></rect>
+      <circle cx="11" cy="3" r="8" fill="black"></circle>
+    </mask>
+    <circle
+      class="sunMoon"
+      cx="10"
+      cy="10"
+      r="8"
+      mask="url(#moon-mask)"
+    ></circle>
+    <g>
+      <circle class="sunRay sunRay1" cx="18" cy="10" r="1.5"></circle>
+      <circle class="sunRay sunRay2" cx="14" cy="16.928" r="1.5"></circle>
+      <circle class="sunRay sunRay3" cx="6" cy="16.928" r="1.5"></circle>
+      <circle class="sunRay sunRay4" cx="2" cy="10" r="1.5"></circle>
+      <circle class="sunRay sunRay5" cx="6" cy="3.1718" r="1.5"></circle>
+      <circle class="sunRay sunRay6" cx="14" cy="3.1718" r="1.5"></circle>
+    </g>
+  </svg>
+</label>
+    <script src="../script/theme.js" defer></script>
+    <script src="../script/backToTop.js"></script>
+
 </body>
 </html>

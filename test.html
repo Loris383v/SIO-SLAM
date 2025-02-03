@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éditeur HTML Interactif</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .editor-container {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            font-family: monospace;
+            display: block;
+            margin-bottom: 10px;
+        }
+        iframe {
+            width: 100%;
+            height: 200px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 8px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Éditeur de Code Interactif</h2>
+
+    <div class="editor-container">
+        <h3>Exemple 1 :</h3>
+        <textarea class="codeEditor">&lt;h1&gt;Bonjour, monde !&lt;/h1&gt;</textarea>
+        <button class="resetButton">Réinitialiser</button>
+        <button class="copyButton">Copier le code</button>
+        <h4>Aperçu :</h4>
+        <iframe class="preview"></iframe>
+    </div>
+
+    <div class="editor-container">
+        <h3>Exemple 2 :</h3>
+        <textarea class="codeEditor">&lt;p&gt;Ceci est un paragraphe de test.&lt;/p&gt;</textarea>
+        <button class="resetButton">Réinitialiser</button>
+        <button class="copyButton">Copier le code</button>
+        <h4>Aperçu :</h4>
+        <iframe class="preview"></iframe>
+    </div>
+
+    <script>
+        document.querySelectorAll(".editor-container").forEach(container => {
+            const textarea = container.querySelector(".codeEditor");
+            const iframe = container.querySelector(".preview");
+            const resetButton = container.querySelector(".resetButton");
+            const copyButton = container.querySelector(".copyButton");
+            let timeout = null;
+            const initialCode = textarea.value; // Stocke le code initial
+
+            function updatePreview() {
+                iframe.contentWindow.document.open();
+                iframe.contentWindow.document.write(textarea.value);
+                iframe.contentWindow.document.close();
+            }
+
+            // Mise à jour avec un délai de 0.3s après la dernière modification
+            textarea.addEventListener("input", () => {
+                clearTimeout(timeout);
+                timeout = setTimeout(updatePreview, 300);
+            });
+
+            // Réinitialisation du code
+            resetButton.addEventListener("click", () => {
+                textarea.value = initialCode;
+                updatePreview();
+            });
+
+            // Copier le code dans le presse-papiers
+            copyButton.addEventListener("click", () => {
+                navigator.clipboard.writeText(textarea.value).then(() => {
+                    alert("Code copié !");
+                }).catch(err => {
+                    console.error("Erreur lors de la copie : ", err);
+                });
+            });
+
+            // Chargement initial
+            updatePreview();
+        });
+    </script>
+
+</body>
+</html>
