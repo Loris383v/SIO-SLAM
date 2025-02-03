@@ -1,10 +1,31 @@
+:root {
+  --color-bg: #333333;
+  --color: white;
+  --body-bg: #2e2e2e;
+  --main-color: #dedede;
+  --sub-color: #ccc;
+  --bg-color: #323232;
+  --accent-color: #BC8D66;
+}
+
+.light-mode {
+  --color-bg: #d4d4d4;
+  --color: black;
+  --body-bg: #dbdbdb;
+  --main-color: #252525;
+  --sub-color: #3a3a3a;
+  --bg-color: #dfdfdf;
+  --accent-color: #BC8D66;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: #2e2e2e;
-    color: white;
+    background-color: var(--body-bg);
+    color: var(--color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 a {
@@ -12,9 +33,10 @@ a {
 }
 
 header {
-    background-color: #333;
-    color: white;
+    background-color: var(--color-bg);
+    color: var(--color);
     padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .intro {
@@ -35,12 +57,12 @@ header {
     padding: 20px;
     margin: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
 }
 
 footer {
-    background-color: #333;
-    color: white;
+    background-color: var(--color-bg);
+    color: var(--color);
     padding: 10px;
     position: relative;
     bottom: 0;
@@ -49,55 +71,12 @@ footer {
 
 
 
-.button {
-    cursor: pointer;
-    background-color: white;
-    text-align: center;
-    width: 100px;
-    height: 32px;
-    border-radius: 16px;
-    position: relative;
-    font-size: 1rem;
-    font-weight: 600;
-    color: black;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-}
 
-.icon-container {
-    background-color: #1f1f1f;
-    border-radius: 12px;
-    height: 20px;
-    width: 25%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    left: 4px;
-    top: 4px;
-    transition: width 0.5s ease;
-    z-index: 10;
-}
-
-.button:hover .icon-container {
-    width: 88px;
-}
-
-.button-text {
-    transform: translateX(8px);
-    transition: color 0.3s ease;
-}
 
 
 
 .card {
-    --main-color: #dedede;
-    --sub-color: #ccc;
-    --bg-color: #323232;
-    --accent-color: #BC8D66;
+
     position: relative;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width: 190px;
