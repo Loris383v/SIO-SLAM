@@ -1,0 +1,718 @@
+:root {
+    --background-color: #2e2e2e;
+    --text-color: white;
+    --code-color: #3b3b3b;
+    --exemple-color: #333333;
+    --table-color: #dddddd;
+    --body-bg: #252525;
+  }
+  
+.light-mode {
+    --background-color: white;
+    --text-color: black;
+    --code-color: #c4c4c4;
+    --exemple-color: #d8d8d8;
+    --table-color: #242424;
+    --body-bg: #e7e7e7;
+  }
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--body-bg);
+    color: var(--text-color);
+    transition: background-color 0.3s;
+}
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: var(--background-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1, h2, h3 {
+    color: var(--text-color);
+}
+
+h2 {
+    background-color: #0056b3;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+h3 {
+    background-color: #6ba1da;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+code {
+    background: var(--code-color);
+    padding: 2px 5px;
+    border-radius: 4px;
+    display: block;
+    white-space: pre-wrap;
+}
+.exemple {
+    border-left: 4px solid var(--exemple-color);
+    padding-left: 20px;
+    margin-left: 30px;
+}
+ul, ol {
+    padding-left: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+th, td {
+    border: 1px solid var(--table-color);
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background: var(--background-color);
+}
+
+
+
+#toc-container {
+    position: fixed;
+    top: 70px;
+    left: 20px;
+    width: 250px;
+    background: var(--background-color);
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease-in-out;
+    z-index: 9000;
+}
+#toc-container.hidden {
+    transform: translateX(-88%);
+}
+#toc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#toggle-btn {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    right: -10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+#toc a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-color);
+    margin: 5px 0;
+    transition: color 0.3s;
+}
+#toc a:hover {
+    color: #0056b3;
+}
+#toc .h3 {
+    font-size: 0.9em;
+    margin-left: 15px;
+    color: #7c7c7c;
+}
+
+
+
+        /* From Uiverse.io by elijahgummer */ 
+.toggle-checkbox {
+display: none;
+}
+
+.hamburger {
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+width: 35px;
+height: 24px;
+cursor: pointer;
+}
+
+.hamburger .bar {
+width: 100%;
+height: 4px;
+background-color: var(--text-color);
+border-radius: 10px;
+transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+position: relative;
+}
+
+.toggle-checkbox:checked + .hamburger .bar:nth-child(2) {
+transform: translate(0px, 10px);
+opacity: 0;
+transition-delay: 0.3s;
+}
+
+.toggle-checkbox:checked + .hamburger .bar:nth-child(3) {
+transform: translate(0px, -10px);
+transition-delay: 0s;
+}
+
+.toggle-checkbox:checked + .hamburger .bar:nth-child(1) {
+transform: rotate(-45deg) scale(0.7);
+transition-delay: 0.4s;
+}
+.toggle-checkbox:checked + .hamburger .bar:nth-child(3) {
+transform: rotate(45deg) scale(0.7);
+transition-delay: 0.4s;
+}
+
+
+
+.bouton-retour {
+    cursor: pointer;
+    background-color: white;
+    text-align: center;
+    width: 100px;
+    height: 32px;
+    border-radius: 16px;
+    position: relative;
+    font-size: 1rem;
+    font-weight: 600;
+    color: black;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+}
+
+.icon-container-retour {
+    background-color: #1f1f1f;
+    border-radius: 12px;
+    height: 20px;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    transition: width 0.5s ease;
+    z-index: 10;
+}
+
+.bouton-retour:hover .icon-container-retour {
+    width: 88px;
+}
+
+.bouton-retour-text {
+    transform: translateX(8px);
+    transition: color 0.3s ease;
+}
+
+
+
+
+
+img {
+    width: calc(50% - 5px);
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+
+.editable {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+textarea {
+    width: 100%;
+    height: 150px;
+    background-color: var(--code-color);
+    font-family: monospace;
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    resize: vertical;
+}
+iframe {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #ccc;
+}
+button {
+    padding: 8px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+
+
+.exemple {
+
+    height: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+
+
+
+
+.button-backtop {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
+    cursor: pointer;
+    transition-duration: 0.3s;
+    overflow: hidden;
+    position: relative;
+    display: none;
+  }
+  
+  .svgIcon-backtop {
+    width: 12px;
+    transition-duration: 0.3s;
+  }
+  
+  .svgIcon-backtop path {
+    fill: white;
+  }
+  
+  .button-backtop:hover {
+    width: 140px;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+    background-color: rgb(181, 160, 255);
+    align-items: center;
+  }
+  
+  .button-backtop:hover .svgIcon-backtop {
+    /* width: 20px; */
+    transition-duration: 0.3s;
+    transform: translateY(-200%);
+  }
+  
+  .button-backtop::before {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 60%); /* Ajuste ici la valeur Y (de 50% à 60%) */
+    content: "Retour en haut";
+    color: white;
+    font-size: 0px;
+    white-space: nowrap;
+  }
+  
+  .button-backtop:hover::before {
+    font-size: 15px;
+    opacity: 1;
+    transform: translate(-50%, 35%); /* Ajuste ici aussi pour un bon alignement */
+    transition-duration: 0.3s;
+  }
+  
+  
+  
+  
+  
+   .backBtn {
+    position: fixed;
+    width: 100%;
+    z-index: 7500;
+    bottom: 10px;
+    justify-items: center;
+   }
+
+
+
+
+
+   .themeToggle {
+    color: #bbb;
+    width: 3em;
+    display: inline-block;
+  }
+  
+  .st-sunMoonThemeToggleBtn {
+    position: fixed;
+    top: -32px;
+    right: 25px;
+    z-index: 9000;
+    cursor: pointer;
+  }
+  
+  .st-sunMoonThemeToggleBtn .themeToggleInput {
+    opacity: 0;
+    width: 100%;
+    aspect-ratio: 1;
+  }
+  
+  .st-sunMoonThemeToggleBtn svg {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s ease;
+    transform: rotate(40deg);
+  }
+  
+  .st-sunMoonThemeToggleBtn svg .sunMoon {
+    transform-origin: center center;
+    transition: inherit;
+    transform: scale(1);
+  }
+  
+  .st-sunMoonThemeToggleBtn svg .sunRay {
+    transform-origin: center center;
+    transform: scale(0);
+  }
+  
+  .st-sunMoonThemeToggleBtn svg mask > circle {
+    transition: transform 0.64s cubic-bezier(0.41, 0.64, 0.32, 1.575);
+    transform: translate(0px, 0px);
+  }
+  
+  .st-sunMoonThemeToggleBtn svg .sunRay2 {
+    animation-delay: 0.05s !important;
+  }
+  .st-sunMoonThemeToggleBtn svg .sunRay3 {
+    animation-delay: 0.1s !important;
+  }
+  .st-sunMoonThemeToggleBtn svg .sunRay4 {
+    animation-delay: 0.17s !important;
+  }
+  .st-sunMoonThemeToggleBtn svg .sunRay5 {
+    animation-delay: 0.25s !important;
+  }
+  .st-sunMoonThemeToggleBtn svg .sunRay5 {
+    animation-delay: 0.29s !important;
+  }
+  
+  .st-sunMoonThemeToggleBtn .themeToggleInput:checked + svg {
+    transform: rotate(90deg);
+  }
+  .st-sunMoonThemeToggleBtn .themeToggleInput:checked + svg mask > circle {
+    transform: translate(16px, -3px);
+  }
+  .st-sunMoonThemeToggleBtn .themeToggleInput:checked + svg .sunMoon {
+    transform: scale(0.55);
+  }
+  .st-sunMoonThemeToggleBtn .themeToggleInput:checked + svg .sunRay {
+    animation: showRay1832 0.4s ease 0s 1 forwards;
+  }
+  
+  @keyframes showRay1832 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+
+
+
+  /* From Uiverse.io by mobinkakei */ 
+.cta {
+    display: flex;
+    padding: 11px 33px;
+    text-decoration: none;
+    font-size: 25px;
+    color: var(--text-color);
+    background: var(--code-color);
+    transition: 1s;
+    box-shadow: 6px 6px 0 black;
+    transform: skewX(-15deg);
+    border: none;
+    cursor: pointer;
+  }
+  
+  .cta:focus {
+    outline: none;
+  }
+  
+  .cta:hover {
+    transition: 0.5s;
+    box-shadow: 10px 10px 0 #fbc638;
+  }
+  
+  .cta .second {
+    transition: 0.5s;
+    margin-right: 0px;
+  }
+  
+  .cta:hover .second {
+    transition: 0.5s;
+    margin-right: 45px;
+  }
+  
+  .span {
+    transform: skewX(15deg);
+  }
+  
+  .second {
+    width: 20px;
+    margin-left: 30px;
+    position: relative;
+    top: 12%;
+  }
+  
+  .one {
+    transition: 0.4s;
+    transform: translateX(-60%);
+  }
+  
+  .two {
+    transition: 0.5s;
+    transform: translateX(-30%);
+  }
+  
+  .cta:hover .three {
+    animation: color_anim 1s infinite 0.2s;
+  }
+  
+  .cta:hover .one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+  }
+  
+  .cta:hover .two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+  }
+  
+  @keyframes color_anim {
+    0% {
+      fill: var(--text-color);
+    }
+  
+    50% {
+      fill: #fbc638;
+    }
+  
+    100% {
+      fill: var(--text-color);
+    }
+  }
+  
+
+
+
+  /* From Uiverse.io by Galahhad */ 
+/* tooltip settings 👇 */
+
+.copyButton {
+  /* button */
+  --button-bg: #353434;
+  --button-hover-bg: #464646;
+  --button-text-color: #CCCCCC;
+  --button-hover-text-color: #8bb9fe;
+  --button-border-radius: 10px;
+  --button-diameter: 40px;
+  --button-outline-width: 1px;
+  --button-outline-color: rgb(141, 141, 141);
+  /* tooltip */
+  --tooltip-bg: #f4f3f3;
+  --toolptip-border-radius: 4px;
+  --tooltip-font-family: Menlo, Roboto Mono, monospace;
+  /* 👆 this field should not be empty */
+  --tooltip-font-size: 12px;
+  /* 👆 this field should not be empty */
+  --tootip-text-color: rgb(50, 50, 50);
+  --tooltip-padding-x: 7px;
+  --tooltip-padding-y: 7px;
+  --tooltip-offset: 8px;
+  --tooltip-transition-duration: 0.3s;
+  /* 👆 if you need a transition, 
+  just remove the comment,
+  but I didn't like the transition :| */
+}
+
+.copyButton {
+  box-sizing: border-box;
+  width: var(--button-diameter);
+  height: var(--button-diameter);
+  border-radius: var(--button-border-radius);
+  background-color: var(--button-bg);
+  color: var(--button-text-color);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+}
+
+.tooltip {
+  position: absolute;
+  opacity: 0;
+  visibility: 0;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font: var(--tooltip-font-size) var(--tooltip-font-family);
+  color: var(--tootip-text-color);
+  background: var(--tooltip-bg);
+  padding: var(--tooltip-padding-y) var(--tooltip-padding-x);
+  border-radius: var(--toolptip-border-radius);
+  pointer-events: none;
+  transition: all var(--tooltip-transition-duration) cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.tooltip::before {
+  content: attr(data-text-initial);
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: calc(var(--tooltip-padding-y) / 2 * -1);
+  width: var(--tooltip-padding-y);
+  height: var(--tooltip-padding-y);
+  background: inherit;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  z-index: -999;
+  pointer-events: none;
+}
+
+.copyButton svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.checkmark {
+  display: none;
+}
+
+/* actions */
+
+.copyButton:hover .tooltip,
+.copyButton:focus:not(:focus-visible) .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: calc((100% + var(--tooltip-offset)) * -1);
+}
+
+.copyButton:focus:not(:focus-visible) .tooltip::before {
+  content: attr(data-text-end);
+}
+
+.copyButton:focus:not(:focus-visible) .clipboard {
+  display: none;
+}
+
+.copyButton:focus:not(:focus-visible) .checkmark {
+  display: block;
+}
+
+.copyButton:hover,
+.copyButton:focus {
+  background-color: var(--button-hover-bg);
+}
+
+.copyButton:active {
+  outline: var(--button-outline-width) solid var(--button-outline-color);
+}
+
+.copyButton:hover svg {
+  color: var(--button-hover-text-color);
+}
+
+
+
+/* From Uiverse.io by andrew-demchenk0 */ 
+.resetButton {
+  --main-focus: #2d8cf0;
+  --font-color: #dedede;
+  --bg-color-sub: #222;
+  --bg-color: #323232;
+  --main-color: #dedede;
+  position: relative;
+  width: 160px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.resetButton, .resetButton__icon, .resetButton__text {
+  transition: all 0.3s;
+}
+
+.resetButton .resetButton__text {
+  transform: translateX(13px);
+  color: var(--font-color);
+  font-weight: 600;
+}
+
+.resetButton .resetButton__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: var(--bg-color-sub);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+}
+
+.resetButton .svg {
+  width: 20px;
+  fill: var(--main-color);
+}
+
+.resetButton:hover {
+  background: var(--bg-color);
+}
+
+.resetButton:hover .resetButton__text {
+  color: transparent;
+}
+
+.resetButton:hover .resetButton__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+.resetButton:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0px 0px var(--main-color);
+}

@@ -53,10 +53,10 @@ table {
     margin-top: 10px;
 }
 th, td {
-    border: 1px solid #ddd;
+    border: 1px solid var(--table-color);
     padding: 8px;
     text-align: left;
 }
 th {
-    background: #2e2e2e;
+    background: var(--background-color);
 }

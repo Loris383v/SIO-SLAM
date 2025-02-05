@@ -1,149 +1,166 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
-    <head>
-        <title>Cours HTML - 2</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../../../Style/monCSS.css" rel="stylesheet" type="text/css"/>
-        <script src="../../../Script/script.js" type="text/javascript"></script>
-        
-        
-    </head>
-    <body class="p">
-        <div class="popup" id="popup" onclick="closePopup()">
-            <img id="popupImage" alt="Popup Image">
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours HTML - 2</title>
+    <link rel="stylesheet" href="../../../Style/cours.css">
+</head>
+<body>
+
+    <button class="bouton-retour" type="button" onclick="location.href='../index.html'">
+        <div class="icon-container-retour">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" height="25px" width="25px">
+                <path d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z" fill="#FFFFFF"></path>
+                <path d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z" fill="#FFFFFF"></path>
+            </svg>
         </div>
+        <p class="bouton-retour-text">Retour</p>
+    </button>
+
+    <div id="toc-container">
         
-        <div id="toc">Chargement du sommaire...</div>
-        <h1>HTML 5 – Partie 2</h1>
-        <h2 id="les-liens-hypertextes-balise-a"> Les liens Hypertextes : balise &lt;a&gt;</h2>
-        <p>L’essence même du Web est de pouvoir naviguer sur différentes pages  en suivant des liens qui peuvent être :</p>
-        <ul>
-            <li>Un endroit de la page en cours.</li>
-            <li>Une autre page du site.</li>
-            <li>Un endroit dans une autre page du site.</li>
-            <li>Une page d’un autre site situé sur le Web.</li>
-            <li>Une adresse électronique.</li>
-            <li>Un fichier à télécharger.</li>
-        </ul>
-        <p>Les liens apparaissent par défaut <a href="./">soulignés et de couleur
-                bleue</a> pour le lien non visité, de couleur pourpre pour le lien
-            visité et rouge pour le lien actif. Le soulignement est une convention
-            majeure du Web pour indiquer les liens hypertextes. Il est toutefois
-            possible de modifier le style des liens en CSS.</p>
-        <p>La balise utilisée pour cela est la balise &lt;a&gt; qui signifie <strong>ancre</strong></p>
-        <h3 id="comprendre-les-chemins-absolus-et-relatifs">Comprendre les
-            chemins absolus et relatifs</h3>
-        <p>Rappelons ici que le protocole principal utilisé pour le Web est
-            <strong>HTTP (Hyper Text Transfer Protocol)</strong>, basé sur le modèle
-            client-serveur dont le fonctionnement est décrit de façon simplifiée ici
-            :</p>
-        <ol type="1">
-            <li><p>Le Client demande une page par l'intermédiaire de son navigateur
-                    (Chrome, Firefox, autres). La page demandée ne se trouve pas en local
-                    sur son propre poste, mais sur le serveur. La page est demandée sous
-                    forme d'URL. <br>Par exemple l'utilisateur demande la page <a target="_blank"  href="http://www.example.com/test.html">http://www.example.com/test.html</a>.</p></li>
-
-            <p>Cette URL se compose en réalité de 2 parties :</p>
-            <ul>
-                <li><p>Le serveur : <a href="#">http://www.example.com</a></p></li>
-                <li><p>La page demandée : /test.html</p></li>
-            </ul>
-            <p>La demande revient à formuler la requête http suivante : sur le
-                serveur <strong>www.example.com GET /test.html</strong></p>
-            <p><strong>Le / correspond à la racine du serveur</strong>. Notons ici
-                que l'on ne sait pas où (physiquement) se trouve les fichiers sur le
-                serveur.</p>
-        </ol>
-        <ol start="2" type="1">
-            <li><p>Le serveur reçoit la requête et l'analyse. Il vérifie qu'il
-                    possède la page demandée (/test.html) dans son système de fichier. Si
-                    c'est le cas, la page est renvoyée via le réseau local ou internet vers
-                    le client. Le navigateur Client n'a plus qu'à interpréter le code HTML
-                    de la page et afficher celle-ci.</p></li>
-        </ol>
-        <div class="image-container"><img src="image/cours2html/Image1.png" alt="" onclick="openPopup(this)"/>
+        <div id="toc-header">
+            <strong><u>Sommaire :</u></strong>
+            
+            <input class="toggle-checkbox" id="toggle-btn" type="checkbox" checked/>
+            <label class="hamburger" for="toggle-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            </label>
         </div>
-        <p>Souvent source d’erreurs, de pages introuvables (erreur 404),
-            d’images manquantes ou de styles non appliqués, le format d’écriture des
-            liens est très important. Une erreur classique est de référencer une
-            page web par rapport à un chemin d'accès physique.</p>
-        <p>Par exemple, le lien suivant n'a aucune chance d'aboutir &lt;a
-            href="C:\Inetpub\wwwroot\test.html"&gt; page 1 &lt;/a&gt;</p>
-        <p>Comme nous l'avons vu précédemment le <u>client,</u> qui va recevoir
-            cette page avec ce lien, va chercher à accéder sur son propre disque le
-            chemin C:\Intepub\wwwroot\test.html</p>
-        <p>Deux types d’écritures cohabitent, chacune avec leur spécificité
-            propre :</p>
+        <div id="toc"></div>
+    </div>
+    
+    <script src="../../../Script/script.js"></script>
+
+<div class="container">
+
+    <h1>HTML 5 – Partie 2</h1>
+    <h2 id="les-liens-hypertextes-balise-a"> Les liens Hypertextes : balise &lt;a&gt;</h2>
+    <p>L’essence même du Web est de pouvoir naviguer sur différentes pages  en suivant des liens qui peuvent être :</p>
+    <ul>
+        <li>Un endroit de la page en cours.</li>
+        <li>Une autre page du site.</li>
+        <li>Un endroit dans une autre page du site.</li>
+        <li>Une page d’un autre site situé sur le Web.</li>
+        <li>Une adresse électronique.</li>
+        <li>Un fichier à télécharger.</li>
+    </ul>
+    <p>Les liens apparaissent par défaut <a href="#">soulignés et de couleur
+            bleue</a> pour le lien non visité, de couleur pourpre pour le lien
+        visité et rouge pour le lien actif. Le soulignement est une convention
+        majeure du Web pour indiquer les liens hypertextes. Il est toutefois
+        possible de modifier le style des liens en CSS.</p>
+    <p>La balise utilisée pour cela est la balise &lt;a&gt; qui signifie <strong>ancre</strong></p>
+    <h3 id="comprendre-les-chemins-absolus-et-relatifs">Comprendre les
+        chemins absolus et relatifs</h3>
+    <p>Rappelons ici que le protocole principal utilisé pour le Web est
+        <strong>HTTP (Hyper Text Transfer Protocol)</strong>, basé sur le modèle
+        client-serveur dont le fonctionnement est décrit de façon simplifiée ici
+        :</p>
+    <ol type="1">
+        <li><p>Le Client demande une page par l'intermédiaire de son navigateur
+                (Chrome, Firefox, autres). La page demandée ne se trouve pas en local
+                sur son propre poste, mais sur le serveur. La page est demandée sous
+                forme d'URL. <br>Par exemple l'utilisateur demande la page <a target="_blank"  href="http://www.example.com/test.html">http://www.example.com/test.html</a>.</p></li>
+
+        <p>Cette URL se compose en réalité de 2 parties :</p>
         <ul>
-            <li><p><strong>Les chemins absolus</strong> : chemin d’accès à une
-                    ressource en indiquant le chemin complet (commence par
-                    « <strong>http://</strong> » ou par la racine / ). Le http://... devient obligatoire dès lors que la ressource  se trouve sur un site web extérieur.
-                </p></li>
-            <li><p><strong>Les chemins relatifs</strong> : chemin d’accès à une
-                    ressource relatifs au répertoire courant de la page. Dans ce type de chemin le <strong>".."</strong> signifie répertoire parent, et le <strong>"."</strong> signifie répertoire courant.</p></li>
-
+            <li><p>Le serveur : <a href="#">http://www.example.com</a></p></li>
+            <li><p>La page demandée : /test.html</p></li>
         </ul>
-        <p><u>Exemple :</u></p>
-        <p>Supposons l’arborescence suivante. Le "/" est la racine du site.
-            Physiquement, les fichiers se trouvent sur un support de stockage.
-            L’emplacement physique où se trouvent les fichiers nous importe peu.</p>
-        <div class="image-container"><img src="./image/cours2html/Image2.png" alt="" onclick="openPopup(this)"/></div>
+        <p>La demande revient à formuler la requête http suivante : sur le
+            serveur <strong>www.example.com GET /test.html</strong></p>
+        <p><strong>Le / correspond à la racine du serveur</strong>. Notons ici
+            que l'on ne sait pas où (physiquement) se trouve les fichiers sur le
+            serveur.</p>
+    </ol>
+    <ol start="2" type="1">
+        <li><p>Le serveur reçoit la requête et l'analyse. Il vérifie qu'il
+                possède la page demandée (/test.html) dans son système de fichier. Si
+                c'est le cas, la page est renvoyée via le réseau local ou internet vers
+                le client. Le navigateur Client n'a plus qu'à interpréter le code HTML
+                de la page et afficher celle-ci.</p></li>
+    </ol>
+    <img src="image/Image1.png" alt=""/>
+    <p>Souvent source d’erreurs, de pages introuvables (erreur 404),
+        d’images manquantes ou de styles non appliqués, le format d’écriture des
+        liens est très important. Une erreur classique est de référencer une
+        page web par rapport à un chemin d'accès physique.</p>
+    <p>Par exemple, le lien suivant n'a aucune chance d'aboutir &lt;a
+        href="C:\Inetpub\wwwroot\test.html"&gt; page 1 &lt;/a&gt;</p>
+    <p>Comme nous l'avons vu précédemment le <u>client,</u> qui va recevoir
+        cette page avec ce lien, va chercher à accéder sur son propre disque le
+        chemin C:\Intepub\wwwroot\test.html</p>
+    <p>Deux types d’écritures cohabitent, chacune avec leur spécificité
+        propre :</p>
+    <ul>
+        <li><p><strong>Les chemins absolus</strong> : chemin d’accès à une
+                ressource en indiquant le chemin complet (commence par
+                « <strong>http://</strong> » ou par la racine / ). Le http://... devient obligatoire dès lors que la ressource  se trouve sur un site web extérieur.
+            </p></li>
+        <li><p><strong>Les chemins relatifs</strong> : chemin d’accès à une
+                ressource relatifs au répertoire courant de la page. Dans ce type de chemin le <strong>".."</strong> signifie répertoire parent, et le <strong>"."</strong> signifie répertoire courant.</p></li>
 
-        <p> L'accès a une ressource par rapport au répertoire courant de la page se fera de la manière suivante : </p>
-          
-        <table>
-           <thead>
-                <tr>
-                    <th><strong>Répertoire courant</strong></th>
-                    <th><strong>Ressource</strong></th>
-                    <th><strong>Chemin relatif</strong></th>
-                    <th><strong>Chemin absolu</strong></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>/</td>
-                    <td>index.html</td>
-                    <td>index.html</td>
-                    <td>/index.html</td>
-                </tr>
-                <tr>
-                    <td>tp1/</td>
-                    <td>index.html</td>
-                    <td>../index.html</td>
-                    <td>/index.html</td>
-                </tr>
-                <tr>
-                    <td>/</td>
-                    <td>page1.html</td>
-                    <td>tp1/page1.html</td>
-                    <td>/tp1/page1.html</td>
-                </tr>
-                <tr>
-                    <td>tp1</td>
-                    <td>img1.png</td>
-                    <td>../images/img1.png</td>
-                    <td>/images/img2.png</td>
-                </tr>
-            </tbody>
-        </table>
+    </ul>
+    <p><u>Exemple :</u></p>
+    <p>Supposons l’arborescence suivante. Le "/" est la racine du site.
+        Physiquement, les fichiers se trouvent sur un support de stockage.
+        L’emplacement physique où se trouvent les fichiers nous importe peu.</p>
+    <img src="./image/Image2.png" alt=""/>
+
+    <p> L'accès a une ressource par rapport au répertoire courant de la page se fera de la manière suivante : </p>
+      
+    <table>
+       <thead>
+            <tr>
+                <th><strong>Répertoire courant</strong></th>
+                <th><strong>Ressource</strong></th>
+                <th><strong>Chemin relatif</strong></th>
+                <th><strong>Chemin absolu</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>/</td>
+                <td>index.html</td>
+                <td>index.html</td>
+                <td>/index.html</td>
+            </tr>
+            <tr>
+                <td>tp1/</td>
+                <td>index.html</td>
+                <td>../index.html</td>
+                <td>/index.html</td>
+            </tr>
+            <tr>
+                <td>/</td>
+                <td>page1.html</td>
+                <td>tp1/page1.html</td>
+                <td>/tp1/page1.html</td>
+            </tr>
+            <tr>
+                <td>tp1</td>
+                <td>img1.png</td>
+                <td>../images/img1.png</td>
+                <td>/images/img2.png</td>
+            </tr>
+        </tbody>
+    </table>
 
 
-        <h2 id="les-différents-types-de-liens">Les différents types de liens</h2>
-        <h3 id="lien-vers-une-autre-page-du-même-site">Lien vers une autre page
-            du même site</h3>
-        <p>Les premiers liens consistent à pointer vers une autre page située
-            dans le site. Il est recommandé d’utiliser ici des liens relatifs.</p>
-        <p>On utilise l’attribut href pour définir l’adresse (URL) de la cible
-            du lien.</p>
-        <p>Exemple :</p>
-        <p class="exemple">
-            <code>
+    <h2 id="les-différents-types-de-liens">Les différents types de liens</h2>
+    <h3 id="lien-vers-une-autre-page-du-même-site">Lien vers une autre page
+        du même site</h3>
+    <p>Les premiers liens consistent à pointer vers une autre page située
+        dans le site. Il est recommandé d’utiliser ici des liens relatifs.</p>
+    <p>On utilise l’attribut href pour définir l’adresse (URL) de la cible
+        du lien.</p>
+    <p>Exemple :</p>
+    <p class="exemple">
+        <code>
 &lt;!--lien vers page2.htm se trouvant dans le même répertoire --&gt;
 &lt;a href=<strong>"page2.htm"</strong>&gt;<strong>Lien vers page 2</strong>&lt;/a&gt;
 &lt;a href=<strong>"./page2.htm"</strong>&gt;<strong>Lien verspage 2</strong>&lt;/a&gt;
@@ -157,77 +174,65 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
 &lt;!--Lien vers index.htm se trouvant dans le répertoire parent --&gt;
 &lt;a href=<strong>".. /index.htm"</strong>&gt;<strong>Texte du lien</strong>&lt;/a&gt;
-            </code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>
-            
-        </p>
+        </code>
+         
         
-        <p>La balise &lt;a&gt; peut contenir d’autres types de balises (h1, div,
-            li, img…)</p>
-        <p><u>Exemple :</u></p>
-        <p class="exemple">
-            <code>
+    </p>
+    
+    <p>La balise &lt;a&gt; peut contenir d’autres types de balises (h1, div,
+        li, img…)</p>
+    <p><u>Exemple :</u></p>
+    <p class="exemple">
+        <code>
 &lt;a href="page2.htm"&gt;
-    &lt;div&gt;
-        &lt;p&gt;les premiers liens consistent à pointer vers une autre page
-            située dans le site. Il est recommandé d’utiliser ici des liens
-            relatifs. On utilise l’attribut href pour définir l’adresse (URL) de la
-            cible du lien.
-        &lt;/p&gt;
-    &lt;/div&gt;
+&lt;div&gt;
+    &lt;p&gt;les premiers liens consistent à pointer vers une autre page
+        située dans le site. Il est recommandé d’utiliser ici des liens
+        relatifs. On utilise l’attribut href pour définir l’adresse (URL) de la
+        cible du lien.
+    &lt;/p&gt;
+&lt;/div&gt;
 &lt;/a&gt;
-            </code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>  
-        </p>
-      
-        <h3>Le lien à l’intérieur d’une même page</h3>
-        <div class="image-container"><img src="image/cours2html/Image3.png" onclick="openPopup(this)" /></div>
-            
-        <p>Il peut être intéressant de
-            mener l’utilisateur à un endroit précis du document notamment si cette
-            page est une page de texte importante, pour des renvois à des notes ou
-            autres. Dans ce cas on place dans notre page ce que l’on appelle une
-            ancre. Le lien nous mènera à cette ancre.</p>
-        <p>Pour définir notre ancre on utilise l'attribut id:</p>
-        <p class="exemple">
-            <code>
-&lt;a id="nomAncre"&gt;&lt;/a&gt;
-            </code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>
-          
-        </p>
-      
-        <p>Noter que l'on évite des caractères spéciaux (un espace par exemple)
-            pour définir l'attribut <strong>id.</strong> Autre particularité importante, il ne
-            peut y avoir dans une même page 2 éléments html ayant le même <strong>id</strong></p>
-        <p>Pour définir le lien vers cette ancre on utilise le caractère <strong>#</strong> devant le nom de l'ancre:</p>
-        <p class="exemple">
-            <code>
-&lt;a href="<strong>#</strong>nomAncre"&gt;Texte du lien&lt;/a&gt;
-            </code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>
-        </p>
+        </code>
+           
+    </p>
+  
+    <h3>Le lien à l’intérieur d’une même page</h3>
+    <img src="image/Image3.png"/>
         
-        <p>Exemple :</p>
-        <p class="exemple">
-            <code>
+    <p>Il peut être intéressant de
+        mener l’utilisateur à un endroit précis du document notamment si cette
+        page est une page de texte importante, pour des renvois à des notes ou
+        autres. Dans ce cas on place dans notre page ce que l’on appelle une
+        ancre. Le lien nous mènera à cette ancre.</p>
+    <p>Pour définir notre ancre on utilise l'attribut id:</p>
+    <p class="exemple">
+        <code>
+&lt;a id="nomAncre"&gt;&lt;/a&gt;
+        </code>
+         
+      
+    </p>
+  
+    <p>Noter que l'on évite des caractères spéciaux (un espace par exemple)
+        pour définir l'attribut <strong>id.</strong> Autre particularité importante, il ne
+        peut y avoir dans une même page 2 éléments html ayant le même <strong>id</strong></p>
+    <p>Pour définir le lien vers cette ancre on utilise le caractère <strong>#</strong> devant le nom de l'ancre:</p>
+    <p class="exemple">
+        <code>
+&lt;a href="<strong>#</strong>nomAncre"&gt;Texte du lien&lt;/a&gt;
+        </code>
+         
+    </p>
+    
+    <p>Exemple :</p>
+    <p class="exemple">
+        <code>
 &lt;a href=<strong>"#ch2"</strong>&gt; <strong>Accès aux chapitres 2</strong>&lt;/a&gt;
 &lt;a id=<strong>"ch1"</strong>&gt;&lt;/a&gt; &lt;!-- ⚓ --&gt;
 &lt;h1&gt;<strong>Chapitre 1</strong>&lt;/h1&gt;
 &lt;p&gt; <strong>le texte du chapitre 1</strong>
-    &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -235,558 +240,619 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 &lt;a id=<strong>"ch2"</strong>&gt;&lt;/a&gt;   &lt;!-- ⚓ --&gt;
 &lt;a href=<strong>"#ch1"</strong>&gt; <strong>Retour au  chapitre 1</strong>&lt;/a&gt;
 &lt;h1&gt;<strong>Chapitre 2</strong>&lt;/h1&gt;
-            </code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>     
-        </p>
+        </code>
+              
+    </p>
 
 
-        <p>Il est également possible de faire référence à une ancre d’une autre
-            page. Exemple :</p>
-        <p class="exemple">
-            <code>
+    <p>Il est également possible de faire référence à une ancre d’une autre
+        page. Exemple :</p>
+    <p class="exemple">
+        <code>
 &lt;a href="dossier1/page1.htm<b>#ancre</b>&gt;Texte du lien&lt;/a&gt;
-            </code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>
-        </p>
-        <p>Enfin, Il existe aussi une ancre par défaut <strong>#top</strong> ou simplement <strong>#</strong> permettant
-            de retourner en haut de la page et simplement  pour retourner à la page par défaut du site:</p>
-        <p class="exemple">
-            <code>
+        </code>
+         
+    </p>
+    <p>Enfin, Il existe aussi une ancre par défaut <strong>#top</strong> ou simplement <strong>#</strong> permettant
+        de retourner en haut de la page et simplement  pour retourner à la page par défaut du site:</p>
+    <p class="exemple">
+        <code>
 &lt;a href="#top"&gt;Retourner en haut de la page&lt;/a&gt;
 &lt;a href="#"&gt;Retourner en haut de la page également&lt;/a&gt;
-            </code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>
-        </p>
-      
-        <h3 id="le-lien-vers-un-autre-site">Le lien vers un autre site (externe)</h3>
-        
-        <p>Un lien peut faire référence à des pages d’autres sites, situées à
-            une autre adresse sur le Web. On utilisera ici un adressage absolu.
-            Attention à ne pas oublier le <strong>"http://"</strong> devant href sinon le lien ne
-            fonctionnera pas.</p>
-        <p>Exemple :</p>
-        <p class="exemple">
-            <code>
+        </code>
+         
+    </p>
+  
+    <h3 id="le-lien-vers-un-autre-site">Le lien vers un autre site (externe)</h3>
+    
+    <p>Un lien peut faire référence à des pages d’autres sites, situées à
+        une autre adresse sur le Web. On utilisera ici un adressage absolu.
+        Attention à ne pas oublier le <strong>"http://"</strong> devant href sinon le lien ne
+        fonctionnera pas.</p>
+    <p>Exemple :</p>
+    <p class="exemple">
+        <code>
 &lt;a href="http://www.w3.org"&gt;Lien vers W3C&lt;/a&gt;
-            </code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>
-        </p>
-        <p>Dans l’exemple précédent, la page vers le site W3C s’ouvre dans la
-            page actuelle. C’est le comportement par défaut de la balise &lt;a&gt;.
-            Il est possible d’ouvrir cette page dans un nouvel onglet en utilisant
-            la touche <strong>"CTRL+clic"</strong> ,clic droit sur le lien puis ouvrir dans un
-            nouvel onglet ou une nouvelle fenêtre, ou encore <strong>CTRL+molette</strong>.</p>
-        <p>Il est également possible de modifier le comportement d’ouverture de
-            votre lien avec l’attribut "target". Voici les différentes possibilités
-            :</p>
-        <ul>
-            <li><p>target="_self" (défaut). Le lien s’ouvre dans la même
-                    fenêtre.</p></li>
-            <li><p>target="_blank". Le lien s’ouvre dans une nouvelle fenêtre du
-                    navigateur ou un nouvel onglet.</p></li>
-            <li><p>target="_top" et "_parent" : seront étudiés plus tard.</p></li>
-        </ul>
-        <p><u>Exemple :</u></p>
-        <p class="exemple">
-            <code>
+        </code>
+         
+    </p>
+    <p>Dans l’exemple précédent, la page vers le site W3C s’ouvre dans la
+        page actuelle. C’est le comportement par défaut de la balise &lt;a&gt;.
+        Il est possible d’ouvrir cette page dans un nouvel onglet en utilisant
+        la touche <strong>"CTRL+clic"</strong> ,clic droit sur le lien puis ouvrir dans un
+        nouvel onglet ou une nouvelle fenêtre, ou encore <strong>CTRL+molette</strong>.</p>
+    <p>Il est également possible de modifier le comportement d’ouverture de
+        votre lien avec l’attribut "target". Voici les différentes possibilités
+        :</p>
+    <ul>
+        <li><p>target="_self" (défaut). Le lien s’ouvre dans la même
+                fenêtre.</p></li>
+        <li><p>target="_blank". Le lien s’ouvre dans une nouvelle fenêtre du
+                navigateur ou un nouvel onglet.</p></li>
+        <li><p>target="_top" et "_parent" : seront étudiés plus tard.</p></li>
+    </ul>
+    <p><u>Exemple :</u></p>
+    <p class="exemple">
+        <code>
 &lt;a href="http://www.w3.org" target="_blank"&gt;Lien vers W3C&lt;/a&gt;</code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>
-        </p>
-        
-        <h3 id="le-lien-vers-une-adresse-email">Le lien vers une adresse email</h3>
-        <p>Le lien ne sera pas ici une page, mais une adresse mail selon la
-            syntaxe suivante :</p>
-        <p class="exemple">
-            <code>
+         
+    </p>
+    
+    <h3 id="le-lien-vers-une-adresse-email">Le lien vers une adresse email</h3>
+    <p>Le lien ne sera pas ici une page, mais une adresse mail selon la
+        syntaxe suivante :</p>
+    <p class="exemple">
+        <code>
 &lt;a href="mailto:samuel.gibert@gmail.com"&gt;M’envoyer un mail &lt;/a&gt;</code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>
-        </p>
-        <p>   Le clic sur le lien ouvrira l’application de messagerie électronique par défaut du visiteur :
-            Microsoft Outlook, Thunderbird…</p>
-        <div class="image-container"><img src="image/cours2html/image4.png" onclick="openPopup(this)" />La plupart des navigateurs proposent de modifier l’application qui
-            gère les mails par défaut. Exemple sous Firefox (voir copie d’écran). Il
-            est également possible de modifier les applications par défaut sous
-            Windows.</div>  
-        <p>Il est aussi possible de prédéfinir un objet du message ainsi envoyé
-            ou prévoir l’envoi d’une copie à un autre destinataire.</p>
-        <ul>
-            <li><p>Pour prédéfinir un objet à l’e-mail :</p></li>
-        </ul>
-        <p class="exemple">
-            <code>
+         
+    </p>
+    <p>   Le clic sur le lien ouvrira l’application de messagerie électronique par défaut du visiteur :
+        Microsoft Outlook, Thunderbird…</p>
+    <img src="image/image4.png"/>
+    <p>La plupart des navigateurs proposent de modifier l’application qui
+        gère les mails par défaut. Exemple sous Firefox (voir copie d’écran). Il
+        est également possible de modifier les applications par défaut sous
+        Windows.</p>
+    <p>Il est aussi possible de prédéfinir un objet du message ainsi envoyé
+        ou prévoir l’envoi d’une copie à un autre destinataire.</p>
+    <ul>
+        <li><p>Pour prédéfinir un objet à l’e-mail :</p></li>
+    </ul>
+    <p class="exemple">
+        <code>
 &lt;a href="mailto:samuel.gibert@gmail.com?subject=Html5"&gt; m’envoyer un mail &lt;/a&gt;
-            </code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>
-        </p>
-        <ul>
-            <li><p>Pour définir une copie du message :</p></li>
-        </ul>
-        <p class="exemple">
-            <code>
+        </code>
+         
+    </p>
+    <ul>
+        <li><p>Pour définir une copie du message :</p></li>
+    </ul>
+    <p class="exemple">
+        <code>
 &lt;a href="mailto:samuel.gibert@gmail.com?cc=autres@gmail.com"&gt; m’envoyer un mail &lt;/a&gt;
-            </code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>
-        </p>
-        <ul>
-            <li><p>Pour combiner les possibilités :</p></li>
-        </ul>
-        <p class="exemple">
-            <code>
+        </code>
+         
+    </p>
+    <ul>
+        <li><p>Pour combiner les possibilités :</p></li>
+    </ul>
+    <p class="exemple">
+        <code>
 &lt;a href="mailto:samuel.gibert@gmail.com?subject=Html5&amp;cc=autres@gmail.com"&gt;m’envoyer un mail &lt;/a&gt;
-           </code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>
-        </p>
-        
-        
-        <h3 id="lien-vers-un-numéro-de-téléphone">Lien vers un numéro de téléphone</h3>
-        <p>Dans même style que pour l’adresse mail il est possible d’inclure
-            dans l’attribut href un numéro de téléphone. Utile dans la navigation
-            sur un smartphone.</p>
-        <p class="exemple">
-            <code>
+       </code>
+         
+    </p>
+    
+    
+    <h3 id="lien-vers-un-numéro-de-téléphone">Lien vers un numéro de téléphone</h3>
+    <p>Dans même style que pour l’adresse mail il est possible d’inclure
+        dans l’attribut href un numéro de téléphone. Utile dans la navigation
+        sur un smartphone.</p>
+    <p class="exemple">
+        <code>
 &lt;a href="tel:+600000000"&gt;+6 15 70 15 64&lt;/a&gt;</code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>
-        </p>
-        
-        <h3 id="le-lien-pour-télécharger-un-fichier">Le lien pour télécharger un fichier</h3>
-        <p>Pour permettre de télécharger un fichier, il suffit de spécifier le
-            nom (avec l’extension) dans l’attribut href. Par défaut, le navigateur cherchera a ouvrir le lien dans
-            le navigateur. Dans le cas précis d'un fichier PDF il sait l'ouvrir. 
-            Avec l'attribut <b>download</b> on force le téléchargement.</p>
-        <p>Exemple avec un fichier PDF: </p>
-        
-        <p class="exemple">
-            <code>
+         
+    </p>
+    
+    <h3 id="le-lien-pour-télécharger-un-fichier">Le lien pour télécharger un fichier</h3>
+    <p>Pour permettre de télécharger un fichier, il suffit de spécifier le
+        nom (avec l’extension) dans l’attribut href. Par défaut, le navigateur cherchera a ouvrir le lien dans
+        le navigateur. Dans le cas précis d'un fichier PDF il sait l'ouvrir. 
+        Avec l'attribut <b>download</b> on force le téléchargement.</p>
+    <p>Exemple avec un fichier PDF: </p>
+    
+    <p class="exemple">
+        <code>
 &lt;a href="./pdf/Cours_HTML_5.pdf" target="_blank"&gt; Ouvrir le cours &lt;/a&gt;
 &lt;a href="./pdf/Cours_HTML_5.pdf" target="_blank" download &gt; Téléchargez le cours &lt;/a&gt;
-            </code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>
-        </p>
-        <p>Dans le cas de fichier PDF, le navigateur propose d’ouvrir le fichier
-            dans le navigateur. Il en sera de même pour tous les autres fichiers
-            reconnus. Quand il n’y a pas d’application définie par défaut pour
-            l’extension du fichier, le navigateur télécharge le fichier. Dans ce cas l'attribut donwload n'est plus obligatoire.</p>
-        <p>Exemple avec un fichier ZIP:</p>
-        <p class="exemple">
-            <code>
+        </code>
+         
+    </p>
+    <p>Dans le cas de fichier PDF, le navigateur propose d’ouvrir le fichier
+        dans le navigateur. Il en sera de même pour tous les autres fichiers
+        reconnus. Quand il n’y a pas d’application définie par défaut pour
+        l’extension du fichier, le navigateur télécharge le fichier. Dans ce cas l'attribut donwload n'est plus obligatoire.</p>
+    <p>Exemple avec un fichier ZIP:</p>
+    <p class="exemple">
+        <code>
 &lt;a href="./archive/Cours_HTML_5.zip"&gt; téléchargez le cours &lt;/a&gt;&lt;br&gt;
-            </code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>
-        </p>
-        
-        
-        <h2 id="attributs-utiles-pour-la-balise-a">Attributs utiles pour la balise &lt;A&gt;</h2>
-        <p>Nous avons vu l’attribut "href", et "target". Il existe d’autres
-            attributs bien utiles.</p>
-        <ul>
-            <li><p>title="valeur" : permet d’afficher une info bulle au-dessus ou en
-                    dessous du lien</p></li>
-            <li><p>download : permet de spécifier que le fichier doit
-                    obligatoirement être téléchargé quel que soit le type du fichier (PDF,
-                    html, zip, exe ,…)</p></li>
-            <li><p>hreflang="valeur" : cet attribut indique de façon purement
-                    indicative la langue de la ressource liée.</p></li>
-            <li><p>Type = "type mime" : type de document du lien : information
-                    purement indicative.</p></li>
-        </ul>
-        <h2 id="conseils-de-mise-en-œuvre">Conseils de mise en œuvre</h2>
-        <p>Ce chapitre est un résumé de l'article suivant avec pour chaque
-            conseil un bon et un mauvais exemple :</p>
-        <p><a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Comment/Cr%C3%A9er_un_hyperlien">https://developer.mozilla.org/fr/docs/Apprendre/HTML/Comment/Cr%C3%A9er_un_hyperlien</a></p>
-        <ul>
-            <li><p>Le texte d'un lien doit être compréhensible seul :</p></li>
-        </ul>
-        <p class="exemple">
-            <code>
+        </code>
+         
+    </p>
+    
+    
+    <h2 id="attributs-utiles-pour-la-balise-a">Attributs utiles pour la balise &lt;A&gt;</h2>
+    <p>Nous avons vu l’attribut "href", et "target". Il existe d’autres
+        attributs bien utiles.</p>
+    <ul>
+        <li><p>title="valeur" : permet d’afficher une info bulle au-dessus ou en
+                dessous du lien</p></li>
+        <li><p>download : permet de spécifier que le fichier doit
+                obligatoirement être téléchargé quel que soit le type du fichier (PDF,
+                html, zip, exe ,…)</p></li>
+        <li><p>hreflang="valeur" : cet attribut indique de façon purement
+                indicative la langue de la ressource liée.</p></li>
+        <li><p>Type = "type mime" : type de document du lien : information
+                purement indicative.</p></li>
+    </ul>
+    <h2 id="conseils-de-mise-en-œuvre">Conseils de mise en œuvre</h2>
+    <p>Ce chapitre est un résumé de l'article suivant avec pour chaque
+        conseil un bon et un mauvais exemple :</p>
+    <p><a href="https://developer.mozilla.org/fr/docs/Apprendre/HTML/Comment/Cr%C3%A9er_un_hyperlien">https://developer.mozilla.org/fr/docs/Apprendre/HTML/Comment/Cr%C3%A9er_un_hyperlien</a></p>
+    <ul>
+        <li><p>Le texte d'un lien doit être compréhensible seul :</p></li>
+    </ul>
+    <p class="exemple">
+        <code>
 &lt;a href="https://firefox.com/"&gt; Télécharger Firefox &lt;/a&gt;
 <del>&lt;a href="https://firefox.com/"&gt; Cliquez ici&lt;/a&gt; pour  télécharger Firefox</del>
-            </code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>
-        </p>
+        </code>
          
-        <ul>
-            <li><p>N'ajoutez pas « lien vers » dans le texte du lien:</p></li>
-        </ul>
-        <p class="exemple">
-            <code>
+    </p>
+     
+    <ul>
+        <li><p>N'ajoutez pas « lien vers » dans le texte du lien:</p></li>
+    </ul>
+    <p class="exemple">
+        <code>
 &lt;a href="https://developer.mozilla.org/Firefox_OS"&gt; En savoir plus sur Firefox OS&lt;/a&gt;
 <del>Voici un &lt;a href="https://developer.mozilla.org/Firefox_OS"&gt; lien sur Firefox OS &lt;/a&gt;</del>
-            </code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>
-        </p>
-        <ul>
-            <li><p>Indiquez la cible du lien plutôt que de copier-coller une
-                    URL</p></li>
-        </ul>
-        <p class="exemple">
-            <code>
+        </code>
+         
+    </p>
+    <ul>
+        <li><p>Indiquez la cible du lien plutôt que de copier-coller une
+                URL</p></li>
+    </ul>
+    <p class="exemple">
+        <code>
 &lt;a href="https://careers.mozilla.org/university/"&gt; Candidatez pour un stage chez Mozilla &lt;/a&gt;
 <del>&lt;a href="https://careers.mozilla.org/university/"&gt; https://careers.mozilla.org/university &lt;/a&gt;</del>
-            </code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>
-        </p>
-        <ul>
-            <li><p>Le texte d'un lien doit être concis</p></li>
-        </ul>
-        <p class="exemple">
-            <code>
+        </code>
+         
+    </p>
+    <ul>
+        <li><p>Le texte d'un lien doit être concis</p></li>
+    </ul>
+    <p class="exemple">
+        <code>
 Voici une page où vous pouvez &lt;a href="https://www.mozilla.org/firefox/all/"&gt; télécharger Firefox &lt;/a&gt;
 <del>Voici une page où &lt;a href="https://www.mozilla.org/firefox/all/"&gt; vous pouvez télécharger Firefox en 90 langues différentes, pour quatre systèmes d'exploitation différents &lt;/a&gt;</del>
-            </code>
-            <button class="copy-button"> 
-                <img src="image/copier.png" alt=""/>
-                <span>Copier le code</span> 
-            </button>
-        </p>
+        </code>
+         
+    </p>
 
-        <h2 id="le-style-sur-les-liens">Le style sur les liens</h2>
-        <p>Dans ce cours vous trouverez les propriétés CSS permettant de mettre
-            en forme les <strong>liens</strong> HTML.</p>
-        <p>Tous ce que nous avons vu comme style sur le texte d'applique
-            également sur la balise &lt;a&gt; puisqu'un lien est aussi du texte. Les
-            propriétés <strong>background-color</strong>, <strong>color, text-xxxx,
-                font-xxxxx</strong>, <strong>et</strong> <strong>autres</strong>,
-            propriétés peuvent être utilisés sur cette balise.</p>
-        <p>Afin de permettre la modification du style des liens, il faut
-            comprendre la notion de pseudoclasses en CSS.</p>
-        <p>Une pseudoclasse est un mot-clé qui peut être ajouté à un sélecteur
-            afin d'indiquer l'état spécifique dans lequel l'élément doit être pour
-            être ciblé par la déclaration.</p>
-        
-        
-        <h3 id="sélecteur-avec-pseudos-classes">Sélecteur avec pseudos classes</h3>
-        
-        <p>Les pseudo classes vont nous permettre de changer le style d’un
-            élément HTML selon son <strong><u>état</u></strong>.</p>
-        <p>Par exemple, la pseudoclasse <strong>:hover</strong>, permettra
-            d'appliquer une mise en forme spécifique lorsque l'utilisateur survole
-            l'élément ciblé par le sélecteur.
-        L'élément HTML sera alors dans <strong>l'état</strong> "survolé".</p>
-        <p>Le sélecteur peut être de type,d'identification, de classou bien hiérarchique. La syntaxe des pseudoclasses est : ()</p>
-        <p class="exemple">Sélecteur : pseudoclasse { déclaration(s) de style }
-        <p>Exemple :</p>
-        <p class="exemple" >
-            div <strong>: hover</strong> { //Quand une balise div est survolé on
-            modifie le style
-            background-color: #F89B4D;
-            }
-        </p>
-        <p>Voici une liste des pseudos classes standard : <a
-                href="https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-classes">https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-classes</a></p>
-        <table>
-            <colgroup>
-                <col style="width: 13%" />
-                <col style="width: 15%" />
-                <col style="width: 15%" />
-                <col style="width: 12%" />
-                <col style="width: 17%" />
-                <col style="width: 25%" />
-            </colgroup>
-            <thead>
-                <tr>
-                    <th>:active</th>
-                    <th>:any</th>
-                    <th>:any-link</th>
-                    <th>:checked</th>
-                    <th>:default</th>
-                    <th>:dir()</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>:disabled</td>
-                    <td>:empty</td>
-                    <td>:enabled</td>
-                    <td>:first</td>
-                    <td>:first-child</td>
-                    <td>:first-of-type</td>
-                </tr>
-                <tr>
-                    <td>:fullscreen</td>
-                    <td>:focus</td>
-                    <td>:hover</td>
-                    <td>:indeterminate</td>
-                    <td>:in-range</td>
-                    <td>:invalid</td>
-                </tr>
-                <tr>
-                    <td>:lang()</td>
-                    <td>:last-child</td>
-                    <td>:last-of-type</td>
-                    <td>:left</td>
-                    <td>:link</td>
-                    <td>:not()</td>
-                </tr>
-                <tr>
-                    <td>:nth-child()</td>
-                    <td>:nth-last-child()</td>
-                    <td>:nth-last-of-type()</td>
-                    <td>:nth-of-type()</td>
-                    <td>:only-child</td>
-                    <td>:only-of-type</td>
-                </tr>
-                <tr>
-                    <td>:optional</td>
-                    <td>:out-of-range</td>
-                    <td>:read-only</td>
-                    <td>:read-write</td>
-                    <td>:required</td>
-                    <td>:right</td>
-                </tr>
-                <tr>
-                    <td>:root</td>
-                    <td>:scope</td>
-                    <td>:target</td>
-                    <td>:valid</td>
-                    <td>:visited</td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-        <p>Certaines de ses pseudo-class sont spécifique à certains éléments
-            HTML et d'autres, comme par exemple <strong>:hover</strong> sont
-            utilisables sur quasiment tous les éléments HTML.</p>
-        <p><strong><u>En résumé</u></strong> : une pseudoclasse cible un élément
-            dans un certain état, comme si nous avions ajouté une classe sur cet
-            élément.</p>
-        <h3 id="pseudos-classe-pour-les-liens">pseudos classe pour les
-            liens</h3>
-        <p>Ces pseudoclasses sont généralement bien utiles pour les liens
-            (&lt;a&gt;). Pour obtenir un résultat correct, il est indispensable
-            d’énoncer les apparences de lien dans l’ordre suivant :</p>
-        <ul>
-            <li><p><b>:link</b> permet de définir l’apparence d’un lien qui n’a pas encore
-                    été sélectionné.</p></li>
-            <li><p><b>:visited</b> permet de définir l’apparence d’un lien qui a déjà été
-                    visité.</p></li>
-            <li><p><b>:hover </b>permet de définir l’apparence d’un lien au passage du
-                    curseur de la souris.</p></li>
-            <li><p><b>:focus </b>(état d'un élément qui a reçu «l'attention», par exemple
-                    un lien lorsqu'on y accède grâce au clavier, ou un champ texte d'un
-                    formulaire lorsqu'on clique dedans)</p></li>
-            <li><p><b>:active </b>permet de définir l’apparence d’un lien au moment où il
-                    est cliqué par le visiteur (entre le clic et le relâchement du
-                    clic)</p></li>
-        </ul>
-        <p>Notons que ici que :link et :visited sont réservés aux liens (élément
-            HTML a)</p>
-        <table>
-            <colgroup>
-                <col style="width: 51%" />
-                <col style="width: 48%" />
-            </colgroup>
-            <thead>
-                <tr>
-                    <th style="text-align: left;"><strong>HTML</strong></th>
-                    <th style="text-align: left;"><strong>CSS externe</strong></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style="text-align: left;">
-                        <p class="exemple">
-                            <code>
+    <h2 id="le-style-sur-les-liens">Le style sur les liens</h2>
+    <p>Dans ce cours vous trouverez les propriétés CSS permettant de mettre
+        en forme les <strong>liens</strong> HTML.</p>
+    <p>Tous ce que nous avons vu comme style sur le texte d'applique
+        également sur la balise &lt;a&gt; puisqu'un lien est aussi du texte. Les
+        propriétés <strong>background-color</strong>, <strong>color, text-xxxx,
+            font-xxxxx</strong>, <strong>et</strong> <strong>autres</strong>,
+        propriétés peuvent être utilisés sur cette balise.</p>
+    <p>Afin de permettre la modification du style des liens, il faut
+        comprendre la notion de pseudoclasses en CSS.</p>
+    <p>Une pseudoclasse est un mot-clé qui peut être ajouté à un sélecteur
+        afin d'indiquer l'état spécifique dans lequel l'élément doit être pour
+        être ciblé par la déclaration.</p>
+    
+    
+    <h3 id="sélecteur-avec-pseudos-classes">Sélecteur avec pseudos classes</h3>
+    
+    <p>Les pseudo classes vont nous permettre de changer le style d’un
+        élément HTML selon son <strong><u>état</u></strong>.</p>
+    <p>Par exemple, la pseudoclasse <strong>:hover</strong>, permettra
+        d'appliquer une mise en forme spécifique lorsque l'utilisateur survole
+        l'élément ciblé par le sélecteur.
+    L'élément HTML sera alors dans <strong>l'état</strong> "survolé".</p>
+    <p>Le sélecteur peut être de type,d'identification, de classou bien hiérarchique. La syntaxe des pseudoclasses est : ()</p>
+    <p class="exemple">Sélecteur : pseudoclasse { déclaration(s) de style }
+    <p>Exemple :</p>
+    <p class="exemple" >
+        div <strong>: hover</strong> { //Quand une balise div est survolé on
+        modifie le style
+        background-color: #F89B4D;
+        }
+    </p>
+    <p>Voici une liste des pseudos classes standard : <a
+            href="https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-classes">https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-classes</a></p>
+    <table>
+        <colgroup>
+            <col style="width: 13%" />
+            <col style="width: 15%" />
+            <col style="width: 15%" />
+            <col style="width: 12%" />
+            <col style="width: 17%" />
+            <col style="width: 25%" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>:active</th>
+                <th>:any</th>
+                <th>:any-link</th>
+                <th>:checked</th>
+                <th>:default</th>
+                <th>:dir()</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>:disabled</td>
+                <td>:empty</td>
+                <td>:enabled</td>
+                <td>:first</td>
+                <td>:first-child</td>
+                <td>:first-of-type</td>
+            </tr>
+            <tr>
+                <td>:fullscreen</td>
+                <td>:focus</td>
+                <td>:hover</td>
+                <td>:indeterminate</td>
+                <td>:in-range</td>
+                <td>:invalid</td>
+            </tr>
+            <tr>
+                <td>:lang()</td>
+                <td>:last-child</td>
+                <td>:last-of-type</td>
+                <td>:left</td>
+                <td>:link</td>
+                <td>:not()</td>
+            </tr>
+            <tr>
+                <td>:nth-child()</td>
+                <td>:nth-last-child()</td>
+                <td>:nth-last-of-type()</td>
+                <td>:nth-of-type()</td>
+                <td>:only-child</td>
+                <td>:only-of-type</td>
+            </tr>
+            <tr>
+                <td>:optional</td>
+                <td>:out-of-range</td>
+                <td>:read-only</td>
+                <td>:read-write</td>
+                <td>:required</td>
+                <td>:right</td>
+            </tr>
+            <tr>
+                <td>:root</td>
+                <td>:scope</td>
+                <td>:target</td>
+                <td>:valid</td>
+                <td>:visited</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Certaines de ses pseudo-class sont spécifique à certains éléments
+        HTML et d'autres, comme par exemple <strong>:hover</strong> sont
+        utilisables sur quasiment tous les éléments HTML.</p>
+    <p><strong><u>En résumé</u></strong> : une pseudoclasse cible un élément
+        dans un certain état, comme si nous avions ajouté une classe sur cet
+        élément.</p>
+    <h3 id="pseudos-classe-pour-les-liens">pseudos classe pour les
+        liens</h3>
+    <p>Ces pseudoclasses sont généralement bien utiles pour les liens
+        (&lt;a&gt;). Pour obtenir un résultat correct, il est indispensable
+        d’énoncer les apparences de lien dans l’ordre suivant :</p>
+    <ul>
+        <li><p><b>:link</b> permet de définir l’apparence d’un lien qui n’a pas encore
+                été sélectionné.</p></li>
+        <li><p><b>:visited</b> permet de définir l’apparence d’un lien qui a déjà été
+                visité.</p></li>
+        <li><p><b>:hover </b>permet de définir l’apparence d’un lien au passage du
+                curseur de la souris.</p></li>
+        <li><p><b>:focus </b>(état d'un élément qui a reçu «l'attention», par exemple
+                un lien lorsqu'on y accède grâce au clavier, ou un champ texte d'un
+                formulaire lorsqu'on clique dedans)</p></li>
+        <li><p><b>:active </b>permet de définir l’apparence d’un lien au moment où il
+                est cliqué par le visiteur (entre le clic et le relâchement du
+                clic)</p></li>
+    </ul>
+    <p>Notons que ici que :link et :visited sont réservés aux liens (élément
+        HTML a)</p>
+    <table>
+        <colgroup>
+            <col style="width: 51%" />
+            <col style="width: 48%" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th style="text-align: left;"><strong>HTML</strong></th>
+                <th style="text-align: left;"><strong>CSS externe</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align: left;">
+                    <p class="exemple">
+                        <code>
 &lt;a href="http://www.google.fr" target="_blank"&gt; vers google &lt;/a&gt;
-                            </code>
-                            <button class="copy-button"> 
-                                <img src="image/copier.png" alt=""/>
-                                <span>Copier le code</span> 
-                            </button>
-                        </p>
-                    </td>
-                    <td style="text-align: left;">
-                        <p class="exemple">
-                            <code>
+                        </code>
+                        
+                    </p>
+                </td>
+                <td style="text-align: left;">
+                    <p class="exemple">
+                        <code>
 a<em>:link</em> {
-    color: red;
-    text-transform: uppercase;
+color: red;
+text-transform: uppercase;
 }
 a<em>:visited</em> {
-    text-decoration: underline red;
-    color:blue;
+text-decoration: underline red;
+color:blue;
 }
 a<em>:hover</em> { font-weight: bold;
-    font-style: italic;
-    font-size: 1.5em;
+font-style: italic;
+font-size: 1.5em;
 }
 a<em>:active</em> {
-    text-decoration: underline overline green;
+text-decoration: underline overline green;
 } </code>
-                            <button class="copy-button"> 
-                                <img src="image/copier.png" alt=""/>
-                                <span>Copier le code</span> 
-                            </button>
-                          
-                        </p>
-                    </td>
                         
-                </tr>
+                      
+                    </p>
+                </td>
                     
-            </tbody>
-        </table>
-        
-        <h3 id="pseudos-classes-de-paragraphe">Pseudos classes de paragraphe</h3>
-        <ul>
-            <li><p><b>:first-letter </b>permet de définir l’apparence de la première lettre
-                    d’un paragraphe.</p></li>
-            <li><p><b>:first-line</b> permet de définir l’apparence de la première ligne
-                    d’un paragraphe.</p></li>
-        </ul>
-        <p><u>Exemple :</u></p>
-        <table>
-            <colgroup>
-                <col style="width: 41%" />
-                <col style="width: 58%" />
-            </colgroup>
-            <thead>
-                <tr>
-                    <th><strong>HTML</strong></th>
-                    <th><strong>CSS externe</strong></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <p class="exemple">
-                            <code>
+            </tr>
+                
+        </tbody>
+    </table>
+    
+    <h3 id="pseudos-classes-de-paragraphe">Pseudos classes de paragraphe</h3>
+    <ul>
+        <li><p><b>:first-letter </b>permet de définir l’apparence de la première lettre
+                d’un paragraphe.</p></li>
+        <li><p><b>:first-line</b> permet de définir l’apparence de la première ligne
+                d’un paragraphe.</p></li>
+    </ul>
+    <p><u>Exemple :</u></p>
+    <table>
+        <colgroup>
+            <col style="width: 41%" />
+            <col style="width: 58%" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th><strong>HTML</strong></th>
+                <th><strong>CSS externe</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <p class="exemple">
+                        <code>
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit,
 sed do eiusmod tempor incididunt ut … anim id est
 laborum.&lt;/p&gt;
-                            </code>
-                            <button class="copy-button"> 
-                                <img src="image/copier.png" alt=""/>
-                                <span>Copier le code</span> 
-                            </button>
-                        </p>
-                    </td>
-                    <td>
-                        <p class="exemple">
-                            <code>
+                        </code>
+                        
+                    </p>
+                </td>
+                <td>
+                    <p class="exemple">
+                        <code>
 p<em>:first-letter</em> {
-    text-transform: uppercase;
-    font-size: 1.5em;
-    color: blue;
+text-transform: uppercase;
+font-size: 1.5em;
+color: blue;
 }
 p<em>::first-line</em>{
-    font-weight: bold;
+font-weight: bold;
 }
-                            </code>
-                            <button class="copy-button"> 
-                                <img src="image/copier.png" alt=""/>
-                                <span>Copier le code</span> 
-                            </button>
-                        </p>
-                    </td>
+                        </code>
+                        
+                    </p>
+                </td>
 
-                </tr>
-               
-            </tbody>
-        </table>
-        <h3 id="les-pseudo-classes-dinsertion">Les pseudo-classes
-            d’insertion</h3>
-        <ul>
-            <li><p>La pseudoclasse <b>:before</b>, associée à la propriété content, permet
-                    d’insérer un contenu avant un élément.</p></li>
-            <li><p>La pseudoclasse <b>:after</b>, associée à la propriété content, permet
-                    d’insérer un contenu après un élément.</p></li>
-        </ul>
-        <p>Ces classes peuvent se combiner avec d'autre pseudoclasses</p>
-        <p><u>Exemple:</u></p>
-        <table>
-            <colgroup>
-                <col style="width: 51%" />
-                <col style="width: 48%" />
-            </colgroup>
-            <thead>
-                <tr>
-                    <th><strong>HTML</strong></th>
-                    <th><strong>CSS externe</strong></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <p class="exemple">
-                            <code>
+            </tr>
+           
+        </tbody>
+    </table>
+    <h3 id="les-pseudo-classes-dinsertion">Les pseudo-classes
+        d’insertion</h3>
+    <ul>
+        <li><p>La pseudoclasse <b>:before</b>, associée à la propriété content, permet
+                d’insérer un contenu avant un élément.</p></li>
+        <li><p>La pseudoclasse <b>:after</b>, associée à la propriété content, permet
+                d’insérer un contenu après un élément.</p></li>
+    </ul>
+    <p>Ces classes peuvent se combiner avec d'autre pseudoclasses</p>
+    <p><u>Exemple:</u></p>
+    <table>
+        <colgroup>
+            <col style="width: 51%" />
+            <col style="width: 48%" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th><strong>HTML</strong></th>
+                <th><strong>CSS externe</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <p class="exemple">
+                        <code>
 &lt;p class="tel"&gt; 06012345 67 &lt;/p&gt; 
 &lt;p class="mail"&gt; samuel.gibert@ac-grenoble.fr &lt;/p&gt;
-                            </code>
-                            <button class="copy-button"> 
-                                <img src="image/copier.png" alt=""/>
-                                <span>Copier le code</span> 
-                            </button>
-                        </p>
-                    </td>
-                    <td>
-                        <p class="exemple">
-                            <code>
+                        </code>
+                        
+                    </p>
+                </td>
+                <td>
+                    <p class="exemple">
+                        <code>
 .tel<em>:before</em> {
-    content:' ✆- ';
+content:' ✆- ';
 }
 .mail<em>:after</em> {
-    content:' -📧 ';
+content:' -📧 ';
 }
 a<em>:hover:before</em> {
-    content: '⇨';
+content: '⇨';
 }
-                            </code>
-                            <button class="copy-button"> 
-                                <img src="image/copier.png" alt=""/>
-                                <span>Copier le code</span> 
-                            </button>
-                        </p>
-                    </td>
-                </tr>
-                
-            </tbody>
-        </table>
+                        </code>
+                        
+                    </p>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
 
-        
-        <script>  generateToc('toc', ['h2']); </script>
-    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- From Uiverse.io by mobinkakei --> 
+<button class="cta" onclick="location.href='../cours_3_html/cours_3_html.html'">
+    <span class="span">Cours suivant</span>
+    <span class="second">
+      <svg
+        width="50px"
+        height="20px"
+        viewBox="0 0 66 43"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <g
+          id="arrow"
+          stroke="none"
+          stroke-width="1"
+          fill="none"
+          fill-rule="evenodd"
+        >
+          <path
+            class="one"
+            d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z"
+            fill="#FFFFFF"
+          ></path>
+          <path
+            class="two"
+            d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z"
+            fill="#FFFFFF"
+          ></path>
+          <path
+            class="three"
+            d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z"
+            fill="#FFFFFF"
+          ></path>
+        </g>
+      </svg>
+    </span>
+  </button>
+
+</div>
+
+
+
+
+<div class="backBtn">
+                        <button class="button-backtop" id="backTopBtn">
+                            <svg class="svgIcon-backtop" viewBox="0 0 384 512">
+                            <path
+                                d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+                            ></path>
+                            </svg>
+                        </button>
+                      </div>
+
+<label
+  for="themeToggle"
+  class="themeToggle st-sunMoonThemeToggleBtn"
+  type="checkbox"
+>
+  <input type="checkbox" id="themeToggle" class="themeToggleInput" />
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    stroke="none"
+  >
+    <mask id="moon-mask">
+      <rect x="0" y="0" width="20" height="20" fill="white"></rect>
+      <circle cx="11" cy="3" r="8" fill="black"></circle>
+    </mask>
+    <circle
+      class="sunMoon"
+      cx="10"
+      cy="10"
+      r="8"
+      mask="url(#moon-mask)"
+    ></circle>
+    <g>
+      <circle class="sunRay sunRay1" cx="18" cy="10" r="1.5"></circle>
+      <circle class="sunRay sunRay2" cx="14" cy="16.928" r="1.5"></circle>
+      <circle class="sunRay sunRay3" cx="6" cy="16.928" r="1.5"></circle>
+      <circle class="sunRay sunRay4" cx="2" cy="10" r="1.5"></circle>
+      <circle class="sunRay sunRay5" cx="6" cy="3.1718" r="1.5"></circle>
+      <circle class="sunRay sunRay6" cx="14" cy="3.1718" r="1.5"></circle>
+    </g>
+  </svg>
+</label>
+
+
+
+
+  
+
+    <script src="../../../../script/theme.js" defer></script>
+    <script src="../../../../script/backToTop.js"></script>
+    <script src="../../../Script/codeediteur.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.4.0/dist/purify.min.js"></script>
+    <script src="../../../../script/backToTop.js"></script>
+</body>
 </html>

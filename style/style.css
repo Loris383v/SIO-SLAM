@@ -120,12 +120,13 @@ svg {
 	cursor: pointer;
 	filter: sepia(20%);
     z-index: 10;
+  transition: background 0.3s;
 }
 
 
 
 .themeToggle {
-    color: var(--color);
+    color: #bbb;
     width: 3em;
     display: inline-block;
   }
