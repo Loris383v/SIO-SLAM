@@ -260,11 +260,7 @@ iframe {
     height: 200px;
     border: 1px solid #ccc;
 }
-button {
-    padding: 8px;
-    cursor: pointer;
-    margin-right: 5px;
-}
+
 
 
 
@@ -669,7 +665,7 @@ button {
   background-color: var(--bg-color);
   border-radius: 10px;
   overflow: hidden;
-  display: inline-block;
+  display: inline;
 }
 
 .resetButton, .resetButton__icon, .resetButton__text {
