@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cours HTML - 3</title>
     <link rel="stylesheet" href="../../../Style/cours.css">
+    <link rel="icon" type="image/x-icon" href="../../../../image/icone.ico">
 </head>
 
     <button class="bouton-retour" type="button" onclick="location.href='../index.html'">
@@ -89,7 +90,7 @@
    
     <p>Si le lien vers l'image est dit "mort" une image cassée s'affichera
         :</p>
-    <div class="image-container"><img src="image/Image1.png" alt="" onclick="openPopup(this)"/></div>
+    <img src="Image/Image1.png" alt=""/>
     <ul>
         <li><p>Les attributs height et width permettent de définir la hauteur et
                 la largeur en pixels. Sans précisions de taille, l’image prend sa
@@ -114,7 +115,7 @@
     <p>Si l'image dépasse la résolution de l'écran des scroll barre
         verticale et/ou horizontale sont ajoutés à la page ce qui esthétiquement
         n'est pas le plus adapté.</p>
-     <div class="image-container"><img src="image/Image2.png"  onclick="openPopup(this)" alt=""/></div>
+     <img src="Image/Image2.png" alt=""/>
     <p>Une image trop petite avec une résolution modifiée avec width et
         height perdra en netteté.</p>
     <p><u>Exemple</u> : la même image affichée avec la même largeur et
@@ -129,10 +130,10 @@
     </p>
       
     
-    <div class="image-container">
-        <img src="image/Image3.png"  onclick="openPopup(this)" title="résolution de 19x10" alt=""/>
-        <img src="image/Image4.png"  onclick="openPopup(this)" title="résolution de 1920x1080"alt=""/>
-    </div>
+    
+        <img src="Image/Image3.png" title="résolution de 19x10" alt=""/>
+        <img src="Image/Image4.png" title="résolution de 1920x1080"alt=""/>
+    
     <p>Pour obtenir une image qui prend toute la largeur de la page et qui
         s'adapte à votre écran, le pixel n'est pas l'unité adaptée. Ici la
         solution est d'utiliser le % sur la largeur de l'image. Modifier la
@@ -189,7 +190,7 @@
         </code>
         
     </p>
-    <div class="image-container"><img src="image/Image5.png"  onclick="openPopup(this)" alt=""/></div>
+    <img src="Image/Image5.png" alt=""/>
     
     <p>700ko ce n'est pas une image
         trop importante. Quand est-il d'une image de 4Mo ou plus. Une solution
@@ -294,10 +295,10 @@ opacity: 0.5;
         </code>
         
     </p>
-     <div class="image-container">
-         <img src="image/Image6.png"  onclick="openPopup(this)" alt=""/>
-         <img src="image/Image7.png"  onclick="openPopup(this)" alt=""/>
-     </div>
+     
+         <img src="Image/Image6.png" alt=""/>
+         <img src="Image/Image7.png" alt=""/>
+     
      
      <p>Attention une image même
         complètement transparente (opacity à 0) reste un bloc à part entière
@@ -317,13 +318,13 @@ opacity: 0.5;
         avec 2 résolutions d'écran différentes. L'image de gauche est en px,
         celle de droite en %.</p>
     
-    <div class="image-container"> 
-        <img src="image/Image8.png"  onclick="openPopup(this)" title="Résolution de 900x900px"/>
-       <img src="image/Image9.png"  onclick="openPopup(this)" title="Résolution de 500x900px"/>
-    </div>
-    <div class="image-container"> 
-        <img src="image/Image10.png"  onclick="openPopup(this)" title="Résolution de 300x900px" alt=""/>
-    </div>
+    
+        <img src="Image/Image8.png" title="Résolution de 900x900px"/>
+       <img src="Image/Image9.png" title="Résolution de 500x900px"/>
+    
+    
+        <img src="Image/Image10.png" title="Résolution de 300x900px" alt=""/>
+    
     <p>Si l'on réduit trop (ou agrandi trop) la résolution de l'écran,
         l'image risque de ne plus être visible correctement. Pour éviter cela il
         existe 4 propriétés qui fixent des limites à la hauteur et à la largeur
@@ -350,9 +351,9 @@ min-width: 200px;   //, mais pas moins que 200px : figure 5.
     </p>
     <p>Par contre si les 2 propriétés sont définies les proportions choisies
         risquent de déformer l'image.</p>
-     <div class="image-container"> 
-        <img src="image/Image11.png"  onclick="openPopup(this)" alt=""/>
-    </div>
+     
+        <img src="Image/Image11.png" alt=""/>
+    
     <p>Parfois on est contraint de
         mettre une image dans une "boîte" avec une dimension fixe (par exemple
         200x200px). Comme nous l'avons expliqué précédemment le risque est
@@ -389,16 +390,16 @@ width: 200px;
         fluctuante. Par défaut tous nos éléments ont donc leur propriétés
         <strong>vertical-align</strong> à la valeur
         <strong>baseline</strong></p>
-     <div class="image-container"> 
-        <img src="image/Image12.png"  onclick="openPopup(this)" alt=""/>
-    </div>
+     
+        <img src="Image/Image12.png" alt=""/>
+    
    <p>Supposons que la
         1<sup>ère</sup> et la dernière image soient alignées verticalement au
         milieu (<strong>middle</strong>). Le positionnement de cette image va se
         faire par rapport ici à notre ligne de base ici en rouge.</p>
-     <div class="image-container"> 
-        <img src="image/Image13.png"  onclick="openPopup(this)" alt=""/>
-    </div>
+     
+        <img src="Image/Image13.png" alt=""/>
+    
    
     <p>Avec les 3 images positionnées au <strong>milieu.</strong> Les
         éléments sont restés sur <strong>baseline</strong> ce qui nous permet de
@@ -406,9 +407,9 @@ width: 200px;
     <p>Pour bien comprendre encore un exemple. La 2<sup>e</sup> image est
         positionnée au milieu. Les autres éléments sont sur baseline. Cela donne
         logiquement.</p>
-     <div class="image-container"> 
-        <img src="image/Image14.png"  onclick="openPopup(this)" alt=""/>
-    </div>
+     
+        <img src="Image/Image14.png" alt=""/>
+    
     <p>Pour mieux comprendre ce style :</p>
     <p><a
             href="https://www.w3schools.com/cssref/playit.asp?filename=playcss_vertical-align&amp;preval=baseline">https://www.w3schools.com/cssref/playit.asp?filename=playcss_vertical-align&amp;preval=baseline</a></p>
