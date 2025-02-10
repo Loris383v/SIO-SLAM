@@ -1,0 +1,228 @@
+:root {
+  --background-color: #2e2e2e;
+  --text-color: white;
+  --card-color: #464646;
+}
+
+.light-mode {
+  --background-color: white;
+  --text-color: black;
+  --card-color: #b4b4b4;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button {
+    cursor: pointer;
+    background-color: white;
+    text-align: center;
+    width: 100px;
+    height: 32px;
+    border-radius: 16px;
+    position: relative;
+    font-size: 1rem;
+    font-weight: 600;
+    color: black;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1000;
+}
+
+.icon-container {
+    background-color: #1f1f1f;
+    border-radius: 12px;
+    height: 20px;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    transition: width 0.5s ease;
+    z-index: 10;
+}
+
+.button:hover .icon-container {
+    width: 88px;
+}
+
+.button-text {
+    transform: translateX(8px);
+    transition: color 0.3s ease;
+}
+
+
+
+
+
+  /* From Uiverse.io by Type-Delta */ 
+/* a clone from joshwcomeau.com 
+ * but this version runs on pure CSS
+ */
+
+.themeToggle {
+  color: #bbb;
+  width: 3em;
+  display: inline-block;
+
+}
+
+.st-sunMoonThemeToggleBtn {
+  position: fixed;
+  top: -32px;
+  right: 25px;
+  z-index: 9000;
+  cursor: pointer;
+}
+
+.st-sunMoonThemeToggleBtn .themeToggleInput {
+  opacity: 0;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.st-sunMoonThemeToggleBtn svg {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease;
+  transform: rotate(40deg);
+}
+
+.st-sunMoonThemeToggleBtn svg .sunMoon {
+  transform-origin: center center;
+  transition: inherit;
+  transform: scale(1);
+}
+
+.st-sunMoonThemeToggleBtn svg .sunRay {
+  transform-origin: center center;
+  transform: scale(0);
+}
+
+.st-sunMoonThemeToggleBtn svg mask > circle {
+  transition: transform 0.64s cubic-bezier(0.41, 0.64, 0.32, 1.575);
+  transform: translate(0px, 0px);
+}
+
+.st-sunMoonThemeToggleBtn svg .sunRay2 {
+  animation-delay: 0.05s !important;
+}
+.st-sunMoonThemeToggleBtn svg .sunRay3 {
+  animation-delay: 0.1s !important;
+}
+.st-sunMoonThemeToggleBtn svg .sunRay4 {
+  animation-delay: 0.17s !important;
+}
+.st-sunMoonThemeToggleBtn svg .sunRay5 {
+  animation-delay: 0.25s !important;
+}
+.st-sunMoonThemeToggleBtn svg .sunRay5 {
+  animation-delay: 0.29s !important;
+}
+
+.st-sunMoonThemeToggleBtn .themeToggleInput:checked + svg {
+  transform: rotate(90deg);
+}
+.st-sunMoonThemeToggleBtn .themeToggleInput:checked + svg mask > circle {
+  transform: translate(16px, -3px);
+}
+.st-sunMoonThemeToggleBtn .themeToggleInput:checked + svg .sunMoon {
+  transform: scale(0.55);
+}
+.st-sunMoonThemeToggleBtn .themeToggleInput:checked + svg .sunRay {
+  animation: showRay1832 0.4s ease 0s 1 forwards;
+}
+
+@keyframes showRay1832 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+
+
+ .backBtn {
+  position: fixed;
+  width: 100%;
+  z-index: 7500;
+  bottom: 10px;
+  justify-items: center;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+ .memory-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  width: 80%;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.card {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1/1;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card input {
+  display: none;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--card-color);
+  border: 2px solid black;
+  backface-visibility: hidden;
+}
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+
+
+.card input:checked + .card-inner {
+  transform: rotateY(180deg);
+}
