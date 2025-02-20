@@ -16,6 +16,10 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+h1, h2 {
+  text-align: center;
+}
+
 .button {
     cursor: pointer;
     background-color: white;

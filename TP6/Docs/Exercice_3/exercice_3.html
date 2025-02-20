@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avril 2025</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <button
+    class="bouton-retour"
+    type="button"
+    onclick="location.href='../../index.html'"
+  >
+    <div class="icon-container-retour">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1024 1024"
+        height="25px"
+        width="25px"
+      >
+        <path
+          d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"
+          fill="#FFFFFF"
+        ></path>
+        <path
+          d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
+          fill="#FFFFFF"
+        ></path>
+      </svg>
+    </div>
+    <p class="bouton-retour-text">Retour</p>
+  </button>
+
+<br>
+    <h1>Calendrier du mois d'Avril 2025</h1>
+    <table>
+        <thead>
+            <th colspan="7" style="text-align: center;">Avril 2025</th>
+        
+            <tr>
+                <td class="jour">Lundi</td>
+                <td class="jour">Mardi</td>
+                <td class="jour">Mercredi</td>
+                <td class="jour">Jeudi</td>
+                <td class="jour">Vendredi</td>
+                <td class="weekend">Samedi</td>
+                <td class="weekend">Dimanche</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="background-color: grey;"></td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td class="weekend">5</td>
+                <td class="weekend">6</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>8</td>
+              <td>9</td>
+              <td>10</td>
+              <td>11</td>
+              <td class="weekend">12</td>
+              <td class="weekend">13</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>15</td>
+              <td>16</td>
+              <td>17</td>
+              <td>18</td>
+              <td class="weekend">19</td>
+              <td class="weekend">20</td>
+            </tr>
+            <tr>
+              <td>21</td>
+              <td>22</td>
+              <td>23</td>
+              <td>24</td>
+              <td>25</td>
+              <td class="weekend">26</td>
+              <td class="weekend">27</td>
+            </tr>
+            <tr>
+              <td>28</td>
+              <td>29</td>
+              <td>30</td>
+              <td colspan="4" style="background-color: grey;"></td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+
+    <label
+    for="themeToggle"
+    class="themeToggle st-sunMoonThemeToggleBtn"
+    type="checkbox"
+  >
+    <input type="checkbox" id="themeToggle" class="themeToggleInput" />
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      stroke="none"
+    >
+      <mask id="moon-mask">
+        <rect x="0" y="0" width="20" height="20" fill="white"></rect>
+        <circle cx="11" cy="3" r="8" fill="black"></circle>
+      </mask>
+      <circle
+        class="sunMoon"
+        cx="10"
+        cy="10"
+        r="8"
+        mask="url(#moon-mask)"
+      ></circle>
+      <g>
+        <circle class="sunRay sunRay1" cx="18" cy="10" r="1.5"></circle>
+        <circle class="sunRay sunRay2" cx="14" cy="16.928" r="1.5"></circle>
+        <circle class="sunRay sunRay3" cx="6" cy="16.928" r="1.5"></circle>
+        <circle class="sunRay sunRay4" cx="2" cy="10" r="1.5"></circle>
+        <circle class="sunRay sunRay5" cx="6" cy="3.1718" r="1.5"></circle>
+        <circle class="sunRay sunRay6" cx="14" cy="3.1718" r="1.5"></circle>
+      </g>
+    </svg>
+  </label>
+
+</body>
+
+    <script src="../../../script/theme.js"></script>
+
+</html>

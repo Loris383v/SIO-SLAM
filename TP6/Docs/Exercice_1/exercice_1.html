@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier Scolaire 2024-2025</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button
+      class="bouton-retour"
+      type="button"
+      onclick="location.href='../../index.html'"
+    >
+      <div class="icon-container-retour">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1024 1024"
+          height="25px"
+          width="25px"
+        >
+          <path
+            d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"
+            fill="#FFFFFF"
+          ></path>
+          <path
+            d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
+            fill="#FFFFFF"
+          ></path>
+        </svg>
+      </div>
+      <p class="bouton-retour-text">Retour</p>
+    </button>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th class="vac-head">Vacances</th>
+                    <th class="zone-a">ZONE A</th>
+                    <th class="zone-b">ZONE B</th>
+                    <th class="zone-c">ZONE C</th>
+                </tr>
+                <tr>
+                    <td style="background-color: #f0f0f0;"></td>
+                    <td class="zone-a-p">Besançon, Bordeaux, Clermont-Ferrand, Dijon, Grenoble, Limoges, Lyon, Poitiers</td>
+                    <td class="zone-b-p">Aix-Marseille, Amiens, Lille, Nancy-Metz, Nantes, Nice, Normandie, Orléans-Tours, Reims, Rennes, Strasbourg</td>
+                    <td class="zone-c-p">Créteil, Montpellier, Paris, Toulouse, Versailles</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="left-header">Prérentrée des enseignants</th>
+                    <td colspan="3">Vendredi 30 août 2024</td>
+                </tr>
+                <tr>
+                    <th class="left-header">Rentrée scolaire des élèves</th>
+                    <td colspan="3">Reprise des cours : lundi 2 septembre 2024</td>
+                </tr>
+                <tr>
+                    <th class="left-header">Vacances de la Toussaint</th>
+                    <td colspan="3">Fin des cours : samedi 19 octobre 2024<br>Reprise des cours : lundi 4 novembre 2024</td>
+                </tr>
+                <tr>
+                    <th class="left-header">Vacances de Noël</th>
+                    <td colspan="3">Fin des cours : samedi 21 décembre 2024<br>Reprise des cours : lundi 6 janvier 2025</td>
+                </tr>
+                <tr>
+                    <th class="left-header">Vacances d'hiver</th>
+                    <td class="zone-a-p">Fin des cours : samedi 22 février 2025<br>Reprise des cours : lundi 10 mars 2025</td>
+                    <td class="zone-b-p">Fin des cours : samedi 8 février 2025<br>Reprise des cours : lundi 24 février 2025</td>
+                    <td class="zone-c-p">Fin des cours : samedi 15 février 2025<br>Reprise des cours : lundi 3 mars 2025</td>
+                </tr>
+                <tr>
+                    <th class="left-header">Vacances de printemps</th>
+                    <td class="zone-a-p">Fin des cours : samedi 19 avril 2025<br>Reprise des cours : lundi 5 mai 2025</td>
+                    <td class="zone-b-p">Fin des cours : samedi 5 avril 2025<br>Reprise des cours : mardi 22 avril 2025</td>
+                    <td class="zone-c-p">Fin des cours : samedi 12 avril 2025<br>Reprise des cours : lundi 28 avril 2025</td>
+                </tr>
+                <tr>
+                    <th class="left-header">Vacances d'été</th>
+                    <td colspan="3">Fin des cours : samedi 5 juillet 2025</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p class="note">
+            Le départ en vacances a lieu après la classe, la reprise des cours le matin des jours indiqués.
+            Les vacances débutant le samedi, pour les élèves qui n'ont pas cours ce jour-là, le départ
+            a lieu le vendredi après les cours. Les classes vaqueront le vendredi 30 mai 2025 et le samedi 31 mai 2025.
+        </p>
+
+        <div class="footer">
+            <img src="Image/MENESR.png" alt="Logo MENESR">
+            <p>MENJ - Décembre 2022</p>
+        </div>
+    </div>
+    <label
+    for="themeToggle"
+    class="themeToggle st-sunMoonThemeToggleBtn"
+    type="checkbox"
+  >
+    <input type="checkbox" id="themeToggle" class="themeToggleInput" />
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      stroke="none"
+    >
+      <mask id="moon-mask">
+        <rect x="0" y="0" width="20" height="20" fill="white"></rect>
+        <circle cx="11" cy="3" r="8" fill="black"></circle>
+      </mask>
+      <circle
+        class="sunMoon"
+        cx="10"
+        cy="10"
+        r="8"
+        mask="url(#moon-mask)"
+      ></circle>
+      <g>
+        <circle class="sunRay sunRay1" cx="18" cy="10" r="1.5"></circle>
+        <circle class="sunRay sunRay2" cx="14" cy="16.928" r="1.5"></circle>
+        <circle class="sunRay sunRay3" cx="6" cy="16.928" r="1.5"></circle>
+        <circle class="sunRay sunRay4" cx="2" cy="10" r="1.5"></circle>
+        <circle class="sunRay sunRay5" cx="6" cy="3.1718" r="1.5"></circle>
+        <circle class="sunRay sunRay6" cx="14" cy="3.1718" r="1.5"></circle>
+      </g>
+    </svg>
+  </label>
+
+    <script src="../../../script/theme.js"></script>
+</body>
+</html>

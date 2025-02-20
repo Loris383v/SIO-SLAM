@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Langages coté serveur</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <button
+    class="bouton-retour"
+    type="button"
+    onclick="location.href='../../index.html'"
+  >
+    <div class="icon-container-retour">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1024 1024"
+        height="25px"
+        width="25px"
+      >
+        <path
+          d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"
+          fill="#FFFFFF"
+        ></path>
+        <path
+          d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
+          fill="#FFFFFF"
+        ></path>
+      </svg>
+    </div>
+    <p class="bouton-retour-text">Retour</p>
+  </button>
+
+<br>
+    <h1>Exercice 2 : Langages de programmation coté serveur</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Logo</th>
+                <th>Nom abrégé</th>
+                <th>Nom complet</th>
+                <th>Année de sortie</th>
+                <th>Site web de référence</th>
+                <th>Exemple de code</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="Image/Python.png" alt="Logo Python"></td>
+                <td>Python</td>
+                <td>Python</td>
+                <td>1991</td>
+                <td><a href="https://www.python.org">www.python.org</a></td>
+                <td>
+                    <pre>print("Hello, World!")</pre>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="Image/PHP.png" alt="Logo PHP"></td>
+                <td>PHP</td>
+                <td>PHP: Hypertext Processor</td>
+                <td>1995</td>
+                <td><a href="https://www.php.net">www.php.net</a></td>
+                <td>
+                    <pre>&lt;?php echo "Hello, World!"; ?&gt;</pre>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="Image/JSP.png" alt="Logo JSP"></td>
+                <td>JSP</td>
+                <td>Jakarta Server Pages (anciennement JavaServer Pages)</td>
+                <td>1999</td>
+                <td><a href="https://jakarta.ee/specifications/pages/3.0/">www.jakarta.ee</a></td>
+                <td>
+                    <pre>&lt;% out.println("Hello, World!"); %&gt;</pre>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="Image/ASP.png" alt="LogoASP"></td>
+                <td>ASP</td>
+                <td>Active Server Pages</td>
+                <td>1996</td>
+                <td><a href="https://dotnet.microsoft.com/apps/aspnet">dotnet.microsoft.com</a></td>
+                <td>
+                    <pre>&lt;% Response.Write("Hello, World!"); %&gt;</pre>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="Image/Ruby.png" alt=" Logo Ruby"></td>
+                <td>Ruby</td>
+                <td>Ruby</td>
+                <td>1995</td>
+                <td><a href="https://www.ruby-lang.org">www.ruby-lang.org</a></td>
+                <td>
+                    <pre>puts "Hello, World!"</pre>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="Image/Perl.png" alt="Logo Perl"></td>
+                <td>Perl</td>
+                <td>Perl</td>
+                <td>1987</td>
+                <td><a href="https://www.perl.org">www.perl.org</a></td>
+                <td>
+                    <pre>print "Hello, World!\n";</pre>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+
+    <label
+    for="themeToggle"
+    class="themeToggle st-sunMoonThemeToggleBtn"
+    type="checkbox"
+  >
+    <input type="checkbox" id="themeToggle" class="themeToggleInput" />
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      stroke="none"
+    >
+      <mask id="moon-mask">
+        <rect x="0" y="0" width="20" height="20" fill="white"></rect>
+        <circle cx="11" cy="3" r="8" fill="black"></circle>
+      </mask>
+      <circle
+        class="sunMoon"
+        cx="10"
+        cy="10"
+        r="8"
+        mask="url(#moon-mask)"
+      ></circle>
+      <g>
+        <circle class="sunRay sunRay1" cx="18" cy="10" r="1.5"></circle>
+        <circle class="sunRay sunRay2" cx="14" cy="16.928" r="1.5"></circle>
+        <circle class="sunRay sunRay3" cx="6" cy="16.928" r="1.5"></circle>
+        <circle class="sunRay sunRay4" cx="2" cy="10" r="1.5"></circle>
+        <circle class="sunRay sunRay5" cx="6" cy="3.1718" r="1.5"></circle>
+        <circle class="sunRay sunRay6" cx="14" cy="3.1718" r="1.5"></circle>
+      </g>
+    </svg>
+  </label>
+
+</body>
+
+    <script src="../../../script/theme.js"></script>
+
+</html>
