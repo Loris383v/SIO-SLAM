@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="../../../image/icone.ico" />
-    <link rel="stylesheet" type="text/css" href="../Style/style.css">
+    <link rel="stylesheet" type="text/css" href="../Style/style.css" />
     <title>Exercice 2</title>
-</head>
-<body>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  margin: 20px;
+  gap: 25px;
+}
+
+.grid-item {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+  img {
+    border: 5px solid var(--text-color);
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+</style>
+
+
+  </head>
+  <body>
     <button
       class="bouton-retour"
       type="button"
@@ -33,49 +61,53 @@
       <p class="bouton-retour-text">Retour</p>
     </button>
 
+    <h1>Exercice 2 - Exemples de zoning</h1>
 
-    <h1>WiP</h1>
-
-
-    
-
-
+    <div class="grid-container">
+      <a href="./Docs/ex1/ex1.html"><img src="./Image/image1.png" class="grid-item" alt="Image 1" /></a>
+      <a href="./Docs/ex2/ex2.html"><img src="./Image/image2.png" alt="Image 2" class="grid-item" /></a>
+      <a href="./Docs/ex3/ex3.html"><img src="./Image/image3.png" alt="Image 3" class="grid-item" /></a>
+      <a href="./Docs/ex4/ex4.html"><img src="./Image/image4.png" alt="Image 4" class="grid-item" /></a>
+      <a href="./Docs/ex5/ex5.html"><img src="./Image/image5.png" alt="Image 5" class="grid-item" /></a>
+      <a href="./Docs/ex6/ex6.html"><img src="./Image/image6.png" alt="Image 6" class="grid-item" /></a>
+      <a href="./Docs/ex7/ex7.html"><img src="./Image/image7.png" alt="Image 7" class="grid-item" /></a>
+    </div>
 
     <label
-    for="themeToggle"
-    class="themeToggle st-sunMoonThemeToggleBtn"
-    type="checkbox"
-  >
-    <input type="checkbox" id="themeToggle" class="themeToggleInput" />
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-      stroke="none"
+      for="themeToggle"
+      class="themeToggle st-sunMoonThemeToggleBtn"
+      type="checkbox"
     >
-      <mask id="moon-mask">
-        <rect x="0" y="0" width="20" height="20" fill="white"></rect>
-        <circle cx="11" cy="3" r="8" fill="black"></circle>
-      </mask>
-      <circle
-        class="sunMoon"
-        cx="10"
-        cy="10"
-        r="8"
-        mask="url(#moon-mask)"
-      ></circle>
-      <g>
-        <circle class="sunRay sunRay1" cx="18" cy="10" r="1.5"></circle>
-        <circle class="sunRay sunRay2" cx="14" cy="16.928" r="1.5"></circle>
-        <circle class="sunRay sunRay3" cx="6" cy="16.928" r="1.5"></circle>
-        <circle class="sunRay sunRay4" cx="2" cy="10" r="1.5"></circle>
-        <circle class="sunRay sunRay5" cx="6" cy="3.1718" r="1.5"></circle>
-        <circle class="sunRay sunRay6" cx="14" cy="3.1718" r="1.5"></circle>
-      </g>
-    </svg>
-  </label>
+      <input type="checkbox" id="themeToggle" class="themeToggleInput" />
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        stroke="none"
+      >
+        <mask id="moon-mask">
+          <rect x="0" y="0" width="20" height="20" fill="white"></rect>
+          <circle cx="11" cy="3" r="8" fill="black"></circle>
+        </mask>
+        <circle
+          class="sunMoon"
+          cx="10"
+          cy="10"
+          r="8"
+          mask="url(#moon-mask)"
+        ></circle>
+        <g>
+          <circle class="sunRay sunRay1" cx="18" cy="10" r="1.5"></circle>
+          <circle class="sunRay sunRay2" cx="14" cy="16.928" r="1.5"></circle>
+          <circle class="sunRay sunRay3" cx="6" cy="16.928" r="1.5"></circle>
+          <circle class="sunRay sunRay4" cx="2" cy="10" r="1.5"></circle>
+          <circle class="sunRay sunRay5" cx="6" cy="3.1718" r="1.5"></circle>
+          <circle class="sunRay sunRay6" cx="14" cy="3.1718" r="1.5"></circle>
+        </g>
+      </svg>
+    </label>
 
-  <script src="../../../script/theme.js"></script>
-</body>
+    <script src="../../../script/theme.js"></script>
+  </body>
 </html>

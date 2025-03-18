@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.contenu {
+    display: flex;
+    flex: 1;
+}
+
+.gauche {
+    background: teal;
+    flex: 1;
+}
+
+.droite {
+    background: purple;
+    flex: 1;
+}
+
+.bas {
+    background: yellow;
+    height: 13%;
+}

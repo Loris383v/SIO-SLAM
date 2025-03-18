@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.haut {
+    background: red;
+    height: 13%;
+}
+
+.contenu {
+    display: flex;
+    flex: 1;
+}
+
+.gauche {
+    background: blue;
+    width: 18%;
+}
+
+.milieu {
+    background: green;
+    flex: 1;
+}
