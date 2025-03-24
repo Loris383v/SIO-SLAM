@@ -206,74 +206,7 @@
   
   
   
-  /* From Uiverse.io by vinodjangid07 */ 
-  .button-backtop {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: rgb(20, 20, 20);
-    border: none;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
-    cursor: pointer;
-    transition-duration: 0.3s;
-    overflow: hidden;
-    position: relative;
-    display: none;
-  }
-  
-  .svgIcon-backtop {
-    width: 12px;
-    transition-duration: 0.3s;
-  }
-  
-  .svgIcon-backtop path {
-    fill: white;
-  }
-  
-  .button-backtop:hover {
-    width: 140px;
-    border-radius: 50px;
-    transition-duration: 0.3s;
-    background-color: rgb(181, 160, 255);
-    align-items: center;
-  }
-  
-  .button-backtop:hover .svgIcon-backtop {
-    /* width: 20px; */
-    transition-duration: 0.3s;
-    transform: translateY(-200%);
-  }
-  
-  .button-backtop::before {
-    position: absolute;
-    bottom: 50%;
-    left: 50%;
-    transform: translate(-50%, 60%); /* Ajuste ici la valeur Y (de 50% à 60%) */
-    content: "Retour en haut";
-    color: white;
-    font-size: 0px;
-    white-space: nowrap;
-  }
-  
-  .button-backtop:hover::before {
-    font-size: 15px;
-    opacity: 1;
-    transform: translate(-50%, 35%); /* Ajuste ici aussi pour un bon alignement */
-    transition-duration: 0.3s;
-  }
   
   
   
   
-  
-   .backBtn {
-    position: fixed;
-    width: 100%;
-    z-index: 7500;
-    bottom: 10px;
-    justify-items: center;
-   }
