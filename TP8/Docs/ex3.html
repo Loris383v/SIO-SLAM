@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercice 3 Simplifié</title>
+</head>
+<body>
+
+<script>
+  let x, y;
+
+  do {
+    x = prompt("Longueur du rectangle :");
+    x = parseInt(x);
+  } while (isNaN(x) || x <= 0);
+  do {
+    y = prompt("Largeur du rectangle :");
+    y = parseInt(y);
+  } while (isNaN(y) || y <= 0);
+
+  let surface = x * y;
+  alert("Surface : " + surface);
+</script>
+
+</body>
+</html>

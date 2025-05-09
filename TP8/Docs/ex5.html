@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercice 5</title>
+</head>
+<body>
+<script>
+  function rect(x, y) {
+    return x * y;
+  }
+    let x, y;
+
+do {
+  x = prompt("Longueur du rectangle :");
+  x = parseInt(x);
+} while (isNaN(x) || x <= 0);
+do {
+  y = prompt("Largeur du rectangle :");
+  y = parseInt(y);
+} while (isNaN(y) || y <= 0);
+
+let surface = rect(x,y);
+alert("Surface : " + surface);
+  document.write("<p>Surface : " + surface + "</p>");
+</script>
+</body>
+</html>

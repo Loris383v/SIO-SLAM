@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Devis Lafarge</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #627c4c;
+    }
+    #infos {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .bloc {
+      width: 45%;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #e6ecd9;
+    }
+    .total {
+      font-weight: bold;
+      background-color: #f5f5f5;
+    }
+    .bottom {
+      margin-top: 40px;
+    }
+    #devis {
+      display: none;
+    }
+    .section {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>DEVIS <span id="numDevis"></span></h1>
+
+<div id="meta">
+  <p><strong>Date du devis :</strong> <span id="dateDevis"></span></p>
+  <p><strong>Validité du devis :</strong> 1 mois</p>
+</div>
+
+<div id="infos">
+  <div class="bloc">
+    <strong>ISABELLE DUBOIS</strong><br>
+    123-456-7890<br>
+    hello@reallygreatsite.com<br>
+    reallygreatsite.com<br>
+    123 Anywhere St., Any City
+  </div>
+  <div class="bloc">
+    <strong>À L’ATTENTION DE<br>CONCORDIA</strong><br>
+    123-456-7890<br>
+    Anywhere St., Any City
+  </div>
+</div>
+
+<form id="formulaire">
+  <label>Surface (en m²) :
+    <input type="number" id="surface" required>
+  </label><br>
+  <label>Épaisseur (entre 15 et 35 cm) :
+    <input type="number" id="epaisseur" required>
+  </label><br><br>
+  <button type="submit">Obtenir le devis</button>
+</form>
+
+<div id="devis">
+  <table>
+    <tr>
+      <th>DESCRIPTION</th>
+      <th>PRIX</th>
+      <th>QUANTITÉ</th>
+      <th>TOTAL</th>
+    </tr>
+    <tr>
+      <td>Béton</td>
+      <td id="prixBeton">91 €/m³</td>
+      <td id="qteBeton">-</td>
+      <td id="totalBeton">-</td>
+    </tr>
+    <tr>
+      <td>Livraison</td>
+      <td id="prixCamion">140 €</td>
+      <td id="qteCamion">-</td>
+      <td id="totalCamion">-</td>
+    </tr>
+    <tr class="total">
+      <td colspan="3">Sous total</td>
+      <td id="sousTotal">-</td>
+    </tr>
+    <tr class="total">
+      <td colspan="3">TVA (20%)</td>
+      <td id="tva">-</td>
+    </tr>
+    <tr class="total">
+      <td colspan="3">TOTAL</td>
+      <td id="totalTTC">-</td>
+    </tr>
+  </table>
+
+  <div class="section">
+    <h3>Termes et conditions</h3>
+    <p>
+      Tous les fichiers sources et droits d’auteur seront transférés une fois le paiement final reçu.<br>
+      Les fichiers livrés sont au format numérique haute résolution.<br><br>
+      30% d’acompte à verser à la signature du contrat.<br>
+      Le reste à la remise des fichiers finaux.
+    </p>
+  </div>
+
+  <div class="section bottom">
+    <p><strong>Signature du client</strong></p>
+    <p>__________________________</p>
+  </div>
+</div>
+
+<script>
+  function formatDate(date) {
+    const d = new Date(date);
+    const day = ("0" + d.getDate()).slice(-2);
+    const month = ("0" + (d.getMonth() + 1)).slice(-2);
+    const year = d.getFullYear();
+    return `${day}/${month}/${year}`;
+  }
+
+  document.getElementById("numDevis").textContent = "N°" + Math.floor(Math.random() * 100000);
+  document.getElementById("dateDevis").textContent = formatDate(new Date());
+
+  document.getElementById("formulaire").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const surface = parseFloat(document.getElementById("surface").value);
+    const epaisseurCm = parseFloat(document.getElementById("epaisseur").value);
+
+    if (isNaN(surface) || isNaN(epaisseurCm) || epaisseurCm < 15 || epaisseurCm > 35) {
+      alert("L'épaisseur doit être entre 15 et 35 cm.");
+      return;
+    }
+
+    const epaisseurM = epaisseurCm / 100;
+    const volume = surface * epaisseurM;
+    const cimentTonne = volume * 350 / 1000;
+    const camions = Math.ceil(volume / 9);
+
+    const prixBetonUnitaire = 91;
+    const prixLivraison = 140;
+
+    const totalBeton = volume * prixBetonUnitaire;
+    const totalCamion = camions * prixLivraison;
+    const sousTotal = totalBeton + totalCamion;
+    const tva = sousTotal * 0.2;
+    const totalTTC = sousTotal + tva;
+
+    document.getElementById("qteBeton").textContent = `${volume.toFixed(2)} m³`;
+    document.getElementById("totalBeton").textContent = `${totalBeton.toFixed(2)} €`;
+
+    document.getElementById("qteCamion").textContent = `${camions} camions`;
+    document.getElementById("totalCamion").textContent = `${totalCamion.toFixed(2)} €`;
+
+    document.getElementById("sousTotal").textContent = `${sousTotal.toFixed(2)} €`;
+    document.getElementById("tva").textContent = `${tva.toFixed(2)} €`;
+    document.getElementById("totalTTC").textContent = `${totalTTC.toFixed(2)} €`;
+
+    document.getElementById("devis").style.display = "block";
+  });
+</script>
+
+</body>
+</html>

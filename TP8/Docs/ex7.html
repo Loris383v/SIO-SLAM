@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercice 8 - Devis Lafarge avec formulaire</title>
+  <style>
+    #devis { visibility: hidden; }
+  </style>
+</head>
+<body>
+
+<h1>Calcul du volume de béton et devis Lafarge</h1>
+
+<form id="formulaire">
+  <label for="surface">Surface de la maison (m²) :</label><br>
+  <input type="number" id="surface" name="surface" required><br><br>
+
+  <label for="epaisseur">Épaisseur de la dalle (15 à 35 cm) :</label><br>
+  <input type="number" id="epaisseur" name="epaisseur" required><br><br>
+
+  <button type="submit">Obtenir le devis</button>
+</form>
+
+<div id="devis">
+  <h2>Devis Lafarge</h2>
+  <p id="volume"></p>
+  <p id="ciment"></p>
+  <p id="camions"></p>
+  <p id="prixHT"></p>
+  <p id="prixTTC"></p>
+</div>
+
+<script>
+  document.getElementById("formulaire").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let surface = parseFloat(document.getElementById("surface").value);
+    let epaisseur = parseFloat(document.getElementById("epaisseur").value);
+
+    epaisseur /= 100;
+
+    let volume = surface * epaisseur;
+    let ciment = volume * 350 / 1000;
+    let camions = Math.ceil(volume / 9);
+    let prixBeton = 91; 
+    let prixTransport = 140;
+    let tarifHT = volume * prixBeton + camions * prixTransport;
+    let tauxTVA = 0.2;
+    let tarifTTC = tarifHT * (1 + tauxTVA);
+
+    document.getElementById("volume").textContent = `Volume de béton nécessaire : ${volume.toFixed(2)} m³`;
+    document.getElementById("ciment").textContent = `Quantité de ciment nécessaire : ${ciment.toFixed(2)} tonnes`;
+    document.getElementById("camions").textContent = `Nombre de camions nécessaires : ${camions}`;
+    document.getElementById("prixHT").textContent = `Prix HT : ${tarifHT.toFixed(2)} €`;
+    document.getElementById("prixTTC").textContent = `Prix TTC : ${tarifTTC.toFixed(2)} €`;
+
+    document.getElementById("devis").style.visibility = "visible";
+  });
+</script>
+
+</body>
+</html>
